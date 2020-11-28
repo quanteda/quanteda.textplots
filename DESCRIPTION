@@ -1,0 +1,42 @@
+Package: quanteda.textplots
+Title: Plotting and Visualisation for the Quantitative Analysis of Textual Data
+Version: 0.90
+Authors@R: 
+    c( 
+    person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role = c("aut", "cph"), comment = c(ORCID = "0000-0002-0797-564X")), 
+    person("Kohei", "Watanabe", email = "watanabe.kohei@gmail.com", role = c("cre", "aut"), comment = c(ORCID = "0000-0001-6519-5265")), 
+    person("Haiyan", "Wang", email = "whyinsa@yahoo.com", role = "aut", comment = c(ORCID = "0000-0003-4992-4311")),
+    person("Adam", "Obeng", email = "quanteda@binaryeagle.com", role = "aut", comment = c(ORCID = "0000-0002-2906-4775")),
+    person("Stefan", "Müller", email = "mullers@tcd.ie", role = "aut", comment = c(ORCID = "0000-0002-6315-4125")),
+    person("Akitaka", "Matsuo", email = "a.matsuo@lse.ac.uk", role = "aut", comment = c(ORCID = "0000-0002-3323-6330")),
+    person("Ian", "Fellows", email = "ian@fellstat.com", role = "cph",  comment = "authored wordcloud C source code (modified)"),
+    person("European Research Council", role = "fnd", comment = "ERC-2011-StG 283794-QUANTESS")
+    )
+Description: Text plotting functions formerly in the 'quanteda' package.
+License: GPL-3
+Imports:
+    quanteda,
+    quanteda.textmodels,
+    quanteda.textstats,
+    data.table,
+    extrafont,
+    ggplot2,
+    ggrepel,
+    sna,
+    igraph,
+    Matrix,
+    methods,
+    network,
+    RColorBrewer,
+    Rcpp (>= 0.12.12)
+LinkingTo: Rcpp
+Suggests:
+    rmarkdown,
+    spelling,
+    testthat,
+    knitr
+Encoding: UTF-8
+LazyData: true
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
