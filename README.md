@@ -17,7 +17,7 @@ status](https://github.com/quanteda/quanteda.textplots/workflows/R-CMD-check/bad
 
 ## About
 
-Contains the textstat functions formerly in **quanteda**. For more
+Contains the `textplot_*()` functions formerly in **quanteda**. For more
 details, see <https://quanteda.io>.
 
 ## How to Install
@@ -34,20 +34,6 @@ Or for the latest development version:
 # devtools package required to install quanteda from Github 
 devtools::install_github("quanteda/quanteda.textplots") 
 ```
-
-Because this compiles some C++ and Fortran source code, you will need to
-have installed the appropriate compilers.
-
-**If you are using a Windows platform**, this means you will need also
-to install the [Rtools](https://CRAN.R-project.org/bin/windows/Rtools/)
-software available from CRAN.
-
-**If you are using macOS**, you should install the [macOS
-tools](https://cran.r-project.org/bin/macosx/tools/), namely the Clang
-6.x compiler and the GNU Fortran compiler (as **quanteda.textplots**
-requires gfortran to build). If you are still getting errors related to
-gfortran, follow the fixes
-[here](https://thecoatlessprofessor.com/programming/rcpp-rcpparmadillo-and-os-x-mavericks--lgfortran-and--lquadmath-error/).
 
 ## How to cite
 
