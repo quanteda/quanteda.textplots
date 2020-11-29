@@ -63,9 +63,9 @@ by the user to be highlighted).
 The \code{groups} argument only applies when \code{margin = "documents"}.
 }
 \examples{
-\dontrun{
+library("quanteda")
 data(data_corpus_irishbudget2010, package = "quanteda.textmodels")
-dfmat <- quanteda::dfm(data_corpus_irishbudget2010)
+dfmat <- dfm(data_corpus_irishbudget2010)
 
 ## wordscores
 refscores <- c(rep(NA, 4), 1, -1, rep(NA, 8))
@@ -93,7 +93,6 @@ tmod3 <- quanteda.textmodels::textmodel_ca(dfmat)
 # plot estimated document positions
 textplot_scale1d(tmod3, margin = "documents",
                  groups = docvars(data_corpus_irishbudget2010, "party"))
-}
 }
 \seealso{
 \code{\link[=textmodel_wordfish]{textmodel_wordfish()}}, \code{\link[=textmodel_wordscores]{textmodel_wordscores()}},

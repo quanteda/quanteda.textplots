@@ -35,9 +35,9 @@
 #' @keywords textplot
 #' @importMethodsFrom Matrix colSums rowSums t
 #' @examples
-#' \dontrun{
+#' library("quanteda")
 #' data(data_corpus_irishbudget2010, package = "quanteda.textmodels")
-#' dfmat <- quanteda::dfm(data_corpus_irishbudget2010)
+#' dfmat <- dfm(data_corpus_irishbudget2010)
 #'
 #' ## wordscores
 #' refscores <- c(rep(NA, 4), 1, -1, rep(NA, 8))
@@ -65,7 +65,6 @@
 #' # plot estimated document positions
 #' textplot_scale1d(tmod3, margin = "documents",
 #'                  groups = docvars(data_corpus_irishbudget2010, "party"))
-#' }
 textplot_scale1d <- function(x,
                              margin = c("documents", "features"),
                              doclabels = NULL,
@@ -182,7 +181,6 @@ textplot_scale1d.textmodel_wordscores <- function(x,
 #' @importFrom ggplot2 coord_flip xlab ylab theme_bw geom_text theme geom_point
 #' @importFrom ggplot2 facet_grid element_line
 #' @importFrom stats coef
-#' @importMethodsFrom quanteda.textmodels coef
 #' @export
 textplot_scale1d.textmodel_ca <- function(x,
                                           margin = c("documents", "features"),

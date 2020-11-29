@@ -53,14 +53,15 @@ instead of the maximum to reduce the impact of outliers.}
 \item{vertex_labelfont}{font-family of texts. Use default font if
 \code{NULL}.}
 
-\item{vertex_labelsize}{size of vertex labels in mm. Defaults to size 5. Supports
-both integer values and vector values.}
+\item{vertex_labelsize}{size of vertex labels in mm. Defaults to size 5.
+Supports both integer values and vector values.}
 
 \item{offset}{if \code{NULL}, the distance between vertices and texts are
 determined automatically.}
 
 \item{...}{additional arguments passed to \link[network:network]{network} or
-\link[igraph:graph_from_adjacency_matrix]{graph_from_adjacency_matrix}.  Not used for \code{as.igraph}.}
+\link[igraph:graph_from_adjacency_matrix]{graph_from_adjacency_matrix}.  Not
+used for \code{as.igraph}.}
 }
 \description{
 Plot an \link{fcm} object as a network, where edges show co-occurrences of

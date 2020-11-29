@@ -32,9 +32,9 @@ and reference categories, for a feature to be included in the plot}
 
 \item{margin}{numeric; size of margin where feature labels are shown}
 
-\item{color}{character or integer; colours of bars for target and reference documents.
-\code{color} must have two elements when \code{show_reference = TRUE}.  See
-\link[ggplot2:aes_colour_fill_alpha]{ggplot2::color}.}
+\item{color}{character or integer; colours of bars for target and reference
+documents. \code{color} must have two elements when \code{show_reference = TRUE}.
+See \link[ggplot2:aes_colour_fill_alpha]{ggplot2::color}.}
 
 \item{labelcolor}{character; color of feature labels.}
 
@@ -52,7 +52,6 @@ associations with a target and a reference group, after calculating keyness
 using \code{\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness()}}.
 }
 \examples{
-\dontrun{
 library("quanteda")
 # compare Trump speeches to other Presidents by chi^2
 dfmat1 <- data_corpus_inaugural \%>\%
@@ -68,11 +67,10 @@ docvars(corp, "party") <-
     ifelse(docvars(corp, "President") \%in\% c("Nixon", "Reagan", "Bush", "Trump"),
            "Republican", "Democrat")
 dfmat2 <- dfm(corp, groups = "party", remove = stopwords("english"),
-                remove_punct = TRUE)
-tstat2 <- quanteda.textstats::textstat_keyness(dfmat2, target = "Democrat", measure = "lr")
+              remove_punct = TRUE)
+tstat2 <- quanteda.textstats::textstat_keyness(dfmat2, target = "Democrat",
+                                               measure = "lr")
 textplot_keyness(tstat2, color = c("blue", "red"), n = 10)
-}
-
 }
 \seealso{
 \code{\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness()}}

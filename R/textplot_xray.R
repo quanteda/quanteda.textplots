@@ -23,7 +23,7 @@
 #'   is to produce one kwic per dictionary key, and send them as a list to
 #'   `textplot_xray`.
 #' @examples 
-#' \dontrun{
+#' library("quanteda")
 #' corp <- corpus_subset(data_corpus_inaugural, Year > 1970)
 #' # compare multiple documents
 #' textplot_xray(kwic(corp, pattern = "american"))
@@ -34,7 +34,7 @@
 #'               kwic(corp, pattern = "people"))
 #' 
 #' # how to modify the ggplot with different options
-#' library(ggplot2)
+#' library("ggplot2")
 #' tplot <- textplot_xray(kwic(corp, pattern = "american"), 
 #'                        kwic(corp, pattern = "people"))
 #' tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
@@ -43,7 +43,6 @@
 #' docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
 #' textplot_xray(kwic(corp, pattern = "america*"), 
 #'               kwic(corp, pattern = "people"))
-#' }
 #' @export
 #' @keywords textplot
 textplot_xray <- function(..., scale = c("absolute", "relative"),
@@ -62,12 +61,6 @@ textplot_xray.default <- function(..., scale = c("absolute", "relative"),
 #' @export
 textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
                                sort = FALSE) {
-
-    if (!requireNamespace("ggplot2", quietly = TRUE))
-        stop("You must have ggplot2 installed to make a dispersion plot.")
-    if (!requireNamespace("grid", quietly = TRUE))
-        stop("You must have grid installed to make a dispersion plot.")
-
     position <- from <- keyword <- docname <- ntokens <- NULL
 
     kwics <- list(...)

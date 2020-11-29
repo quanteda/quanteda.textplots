@@ -71,12 +71,13 @@ aspect ratio only supported if rotation = 0.}
 
 \item{comparison}{logical; if \code{TRUE}, plot a wordcloud that compares
 documents in the same way as \code{\link[wordcloud:comparison.cloud]{wordcloud::comparison.cloud()}}.  If \code{x} is a
-\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness} object, then only the target category's key terms are
-plotted when \code{comparison = FALSE}, otherwise the top \code{max_words / 2} terms
-are plotted from the target and reference categories.}
+\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness} object, then only the target
+category's key terms are plotted when \code{comparison = FALSE}, otherwise the
+top \code{max_words / 2} terms are plotted from the target and reference
+categories.}
 }
 \description{
-Plot a \link{dfm} or \link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness} object as a wordcloud, where the feature
+Plot a \link{dfm} or \link{textstat_keyness} object as a wordcloud, where the feature
 labels are plotted with their sizes proportional to their numerical values in
 the dfm.  When \code{comparison = TRUE}, it plots comparison word clouds by
 document (or by target and reference categories in the case of a keyness
@@ -87,10 +88,11 @@ The default is to plot the word cloud of all features, summed across
 documents.  To produce word cloud plots for specific document or set of
 documents, you need to slice out the document(s) from the dfm object.
 
-Comparison wordcloud plots may be plotted by setting \code{comparison = TRUE}, which plots a separate grouping for \emph{each document} in the dfm.
-This means that you will need to slice out just a few documents from the
-dfm, or to create a dfm where the "documents" represent a subset or a
-grouping of documents by some document variable.
+Comparison wordcloud plots may be plotted by setting \code{comparison = TRUE},
+which plots a separate grouping for \emph{each document} in the dfm. This means
+that you will need to slice out just a few documents from the dfm, or to
+create a dfm where the "documents" represent a subset or a grouping of
+documents by some document variable.
 }
 \examples{
 # plot the features (without stopwords) from Obama's inaugural addresses
@@ -121,13 +123,11 @@ textplot_wordcloud(dfmat2, comparison = TRUE, max_words = 300,
                    color = c("blue", "red"))
                    
 # for keyness
-\dontrun{
 tstat <- tail(data_corpus_inaugural, 2) \%>\%
     dfm(remove_punct = TRUE, remove = stopwords("en")) \%>\%
     quanteda.textstats::textstat_keyness(target = 2)
 textplot_wordcloud(tstat, max_words = 100)
 textplot_wordcloud(tstat, comparison = FALSE, max_words = 100)
-}
 }
 \author{
 Kohei Watanabe, building on code from Ian Fellows's \pkg{wordcloud}

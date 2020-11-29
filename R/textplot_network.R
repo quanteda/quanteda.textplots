@@ -18,12 +18,13 @@
 #'   `vertex_color`. If `NA` is given, texts are not rendered.
 #' @param vertex_labelfont font-family of texts. Use default font if
 #'   `NULL`.
-#' @param vertex_labelsize size of vertex labels in mm. Defaults to size 5. Supports
-#'   both integer values and vector values.
+#' @param vertex_labelsize size of vertex labels in mm. Defaults to size 5.
+#'   Supports both integer values and vector values.
 #' @param offset if `NULL`, the distance between vertices and texts are
 #'   determined automatically.
 #' @param ... additional arguments passed to [network][network::network] or
-#'   [graph_from_adjacency_matrix][igraph::graph_from_adjacency_matrix].  Not used for `as.igraph`.
+#'   [graph_from_adjacency_matrix][igraph::graph_from_adjacency_matrix].  Not
+#'   used for `as.igraph`.
 #' @details Currently the size of the network is limited to 1000, because of the
 #'   computationally intensive nature of network formation for larger matrices.
 #'   When the [fcm] is large, users should select features using

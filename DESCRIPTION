@@ -22,13 +22,15 @@ Imports:
     extrafont,
     ggplot2,
     ggrepel,
+    grid,
     sna,
     igraph,
     Matrix,
     methods,
     network,
     RColorBrewer,
-    Rcpp (>= 0.12.12)
+    Rcpp (>= 0.12.12),
+    stringi
 LinkingTo: Rcpp
 Suggests:
     rmarkdown,

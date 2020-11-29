@@ -1,19 +1,20 @@
 #' Plot features as a wordcloud
 #'
-#' Plot a [dfm] or [quanteda.textstats::textstat_keyness] object as a wordcloud, where the feature
+#' Plot a [dfm] or [textstat_keyness] object as a wordcloud, where the feature
 #' labels are plotted with their sizes proportional to their numerical values in
 #' the dfm.  When `comparison = TRUE`, it plots comparison word clouds by
 #' document (or by target and reference categories in the case of a keyness
 #' object).
-#' @details The default is to plot the word cloud of all features, summed across
-#'   documents.  To produce word cloud plots for specific document or set of
-#'   documents, you need to slice out the document(s) from the dfm object.
+#' @details 
+#'  The default is to plot the word cloud of all features, summed across
+#'  documents.  To produce word cloud plots for specific document or set of
+#'  documents, you need to slice out the document(s) from the dfm object.
 #'   
-#'   Comparison wordcloud plots may be plotted by setting `comparison =
-#'   TRUE`, which plots a separate grouping for *each document* in the dfm.
-#'   This means that you will need to slice out just a few documents from the
-#'   dfm, or to create a dfm where the "documents" represent a subset or a
-#'   grouping of documents by some document variable.
+#'  Comparison wordcloud plots may be plotted by setting `comparison = TRUE`,
+#'  which plots a separate grouping for *each document* in the dfm. This means
+#'  that you will need to slice out just a few documents from the dfm, or to
+#'  create a dfm where the "documents" represent a subset or a grouping of
+#'  documents by some document variable.
 #'   
 #' @param x a [dfm] or [quanteda.textstats::textstat_keyness] object
 #' @param min_size size of the smallest word
@@ -40,12 +41,18 @@
 #' @param fixed_aspect logical; if `TRUE`, the aspect ratio is fixed. Variable
 #'   aspect ratio only supported if rotation = 0.
 #' @param comparison logical; if `TRUE`, plot a wordcloud that compares
-#'   documents in the same way as [wordcloud::comparison.cloud()].  If `x` is a 
-#'   [quanteda.textstats::textstat_keyness] object, then only the target category's key terms are
-#'   plotted when `comparison = FALSE`, otherwise the top `max_words / 2` terms
-#'   are plotted from the target and reference categories. 
+#'   documents in the same way as [wordcloud::comparison.cloud()].  If `x` is a
+#'   [quanteda.textstats::textstat_keyness] object, then only the target
+#'   category's key terms are plotted when `comparison = FALSE`, otherwise the
+#'   top `max_words / 2` terms are plotted from the target and reference
+#'   categories.
 #' @param ... additional parameters. Only used to make it compatible with
 #'   \pkg{wordcloud}
+#' @export
+#' @keywords textplot
+#' @author Kohei Watanabe, building on code from Ian Fellows's \pkg{wordcloud}
+#'   package.
+#' @import ggplot2
 #' @examples
 #' # plot the features (without stopwords) from Obama's inaugural addresses
 #' set.seed(10)
@@ -75,18 +82,11 @@
 #'                    color = c("blue", "red"))
 #'                    
 #' # for keyness
-#' \dontrun{
 #' tstat <- tail(data_corpus_inaugural, 2) %>%
 #'     dfm(remove_punct = TRUE, remove = stopwords("en")) %>%
 #'     quanteda.textstats::textstat_keyness(target = 2)
 #' textplot_wordcloud(tstat, max_words = 100)
 #' textplot_wordcloud(tstat, comparison = FALSE, max_words = 100)
-#' }
-#' @export
-#' @keywords textplot
-#' @author Kohei Watanabe, building on code from Ian Fellows's \pkg{wordcloud}
-#'   package.
-#' @import ggplot2
 textplot_wordcloud <- function(x, 
                                min_size = 0.5, 
                                max_size = 4,

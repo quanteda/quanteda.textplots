@@ -11,9 +11,9 @@
 #' @param min_count numeric; minimum total count of feature across the target
 #'   and reference categories, for a feature to be included in the plot
 #' @param margin numeric; size of margin where feature labels are shown
-#' @param color character or integer; colours of bars for target and reference documents.
-#'   `color` must have two elements when `show_reference = TRUE`.  See
-#'   \link[ggplot2:aes_colour_fill_alpha]{ggplot2::color}.
+#' @param color character or integer; colours of bars for target and reference
+#'   documents. `color` must have two elements when `show_reference = TRUE`.
+#'   See \link[ggplot2:aes_colour_fill_alpha]{ggplot2::color}.
 #' @param labelcolor character; color of feature labels.
 #' @param labelsize numeric; size of feature labels and bars.  See
 #'   \link[ggplot2:aes_linetype_size_shape]{ggplot2::size}.
@@ -24,7 +24,6 @@
 #' @seealso [quanteda.textstats::textstat_keyness()]
 #' @keywords textplot
 #' @examples
-#' \dontrun{
 #' library("quanteda")
 #' # compare Trump speeches to other Presidents by chi^2
 #' dfmat1 <- data_corpus_inaugural %>%
@@ -40,11 +39,10 @@
 #'     ifelse(docvars(corp, "President") %in% c("Nixon", "Reagan", "Bush", "Trump"),
 #'            "Republican", "Democrat")
 #' dfmat2 <- dfm(corp, groups = "party", remove = stopwords("english"),
-#'                 remove_punct = TRUE)
-#' tstat2 <- quanteda.textstats::textstat_keyness(dfmat2, target = "Democrat", measure = "lr")
+#'               remove_punct = TRUE)
+#' tstat2 <- quanteda.textstats::textstat_keyness(dfmat2, target = "Democrat",
+#'                                                measure = "lr")
 #' textplot_keyness(tstat2, color = c("blue", "red"), n = 10)
-#' }
-#'
 textplot_keyness <-  function(x, show_reference = TRUE, show_legend = TRUE,
                               n = 20L, min_count = 2L, margin = 0.05,
                               color = c("darkblue", "gray"), labelcolor = "gray30",

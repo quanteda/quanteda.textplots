@@ -42,7 +42,7 @@ is to produce one kwic per dictionary key, and send them as a list to
 }
 
 \examples{
-\dontrun{
+library("quanteda")
 corp <- corpus_subset(data_corpus_inaugural, Year > 1970)
 # compare multiple documents
 textplot_xray(kwic(corp, pattern = "american"))
@@ -53,7 +53,7 @@ textplot_xray(kwic(corp, pattern = "america*"),
               kwic(corp, pattern = "people"))
 
 # how to modify the ggplot with different options
-library(ggplot2)
+library("ggplot2")
 tplot <- textplot_xray(kwic(corp, pattern = "american"), 
                        kwic(corp, pattern = "people"))
 tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
@@ -62,6 +62,5 @@ tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
 docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
 textplot_xray(kwic(corp, pattern = "america*"), 
               kwic(corp, pattern = "people"))
-}
 }
 \keyword{textplot}
