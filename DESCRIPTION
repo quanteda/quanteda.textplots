@@ -37,6 +37,8 @@ Suggests:
     spelling,
     testthat,
     knitr
+Remotes:
+    quanteda/quanteda.textstats
 Encoding: UTF-8
 LazyData: true
 Language: en-GB
