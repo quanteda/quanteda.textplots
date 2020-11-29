@@ -49,11 +49,11 @@
 #' fcm_select(fcmat, pattern = feat) %>%
 #'     textplot_network(vertex_labelsize = 10)
 #' fcm_30 <- fcm_select(fcmat, pattern = feat)
-#' textplot_network(fcm_30, 
+#' textplot_network(fcm_30,
 #'                  vertex_labelsize = Matrix::rowSums(fcm_30) / min(Matrix::rowSums(fcm_30)))
 #' # Vector inputs to vertex_labelsize can be scaled if too small / large
-#' textplot_network(fcm_30, 
-#'                  vertex_labelsize = 1.5 * Matrix::rowSums(fcm_30) / 
+#' textplot_network(fcm_30,
+#'                  vertex_labelsize = 1.5 * Matrix::rowSums(fcm_30) /
 #'                                     min(Matrix::rowSums(fcm_30)))
 #' @export
 #' @seealso [fcm()]
@@ -134,7 +134,7 @@ textplot_network.fcm <- function(x, min_freq = 0.5, omit_isolated = TRUE,
     if (length(vertex_color) > 1) vertex_color <- vertex_color[l]
     if (length(vertex_size) > 1) vertex_size <- vertex_size[l]
     if (length(vertex_labelsize) > 1) vertex_labelsize <- vertex_labelsize[l]
-    
+
     edge$color <- edge_color
     edge$alpha <- edge_alpha
     edge$size <- edge_size

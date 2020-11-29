@@ -49,18 +49,18 @@ textplot_xray(kwic(corp, pattern = "american"))
 textplot_xray(kwic(corp, pattern = "american"), scale = "absolute")
 
 # compare multiple terms across multiple documents
-textplot_xray(kwic(corp, pattern = "america*"), 
+textplot_xray(kwic(corp, pattern = "america*"),
               kwic(corp, pattern = "people"))
 
 # how to modify the ggplot with different options
 library("ggplot2")
-tplot <- textplot_xray(kwic(corp, pattern = "american"), 
+tplot <- textplot_xray(kwic(corp, pattern = "american"),
                        kwic(corp, pattern = "people"))
 tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
 
 # adjust the names of the document names
 docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
-textplot_xray(kwic(corp, pattern = "america*"), 
+textplot_xray(kwic(corp, pattern = "america*"),
               kwic(corp, pattern = "people"))
 }
 \keyword{textplot}

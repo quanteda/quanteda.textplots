@@ -89,7 +89,8 @@ test_that("test plot.kwic facet order parameter", {
 })
 
 # test_that("test plot.kwic keeps order of keywords passed", {
-#     p <- textplot_xray(kwic(data_corpus_inaugural, "people"), kwic(data_corpus_inaugural, "american"), sort = TRUE)
+#     p <- textplot_xray(kwic(data_corpus_inaugural, "people"), 
+#                        kwic(data_corpus_inaugural, "american"), sort = TRUE)
 #     keywords <- as.character(unique(ggplot2::ggplot_build(p)$layout$panel_layout$keyword))
 #     if (identical(keywords, character(0))) {
 #         keywords <- as.character(unique(ggplot2::ggplot_build(p)$layout$layout$keyword))
@@ -139,8 +140,9 @@ test_that("test textplot_wordcloud comparison works", {
         textplot_wordcloud(dfm(data_corpus_inaugural[1:9]), comparison = TRUE),
         "Too many documents to plot comparison, use 8 or fewer documents"
     )
-    
-    dfmsmall <- dfm(data_corpus_inaugural[1:9], groups = "President", remove = stopwords("en"), remove_punct = TRUE) %>%
+
+    dfmsmall <- dfm(data_corpus_inaugural[1:9], groups = "President", 
+                    remove = stopwords("en"), remove_punct = TRUE) %>%
         dfm_trim(min_termfreq = 20)
     expect_silent(textplot_wordcloud(dfmsmall, comparison = TRUE))
     expect_silent(textplot_wordcloud(dfmsmall, color = 1:5))
@@ -156,7 +158,7 @@ test_that("test textplot_wordcloud comparison works", {
         textplot_wordcloud(dfmsmall, max.words = 10),
         "max.words is deprecated; use max_words instead"
     )
-    
+
     dev.off()
     expect_error(
         textplot_wordcloud(testdfm, comparison = TRUE),

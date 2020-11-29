@@ -59,7 +59,7 @@ textplot_keyness.default <- function(x, show_reference = TRUE, show_legend = TRU
 }
 
 #' @import ggplot2
-#' @importFrom utils head tail 
+#' @importFrom utils head tail
 #' @export
 textplot_keyness.keyness <- function(x, show_reference = TRUE, show_legend = TRUE,
                                      n = 20L, min_count = 2L, margin = 0.05,

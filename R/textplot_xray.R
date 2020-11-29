@@ -1,10 +1,10 @@
 #' Plot the dispersion of key word(s)
-#' 
-#' Plots a dispersion or "x-ray" plot of selected word pattern(s) across one or 
+#'
+#' Plots a dispersion or "x-ray" plot of selected word pattern(s) across one or
 #' more texts. The format of the plot depends on the number of [kwic] class
 #' objects passed: if there is only one document, keywords are plotted one below
-#' the other. If there are multiple documents the documents are plotted one 
-#' below the other, with keywords shown side-by-side. Given that this returns a 
+#' the other. If there are multiple documents the documents are plotted one
+#' below the other, with keywords shown side-by-side. Given that this returns a
 #' \pkg{ggplot2} object, you can modify the plot by adding \pkg{ggplot2} layers
 #' (see example).
 #' @param ... any number of [kwic] class objects
@@ -22,26 +22,26 @@
 #'   the text, only the first match will be used in the plot.  The way around this
 #'   is to produce one kwic per dictionary key, and send them as a list to
 #'   `textplot_xray`.
-#' @examples 
+#' @examples
 #' library("quanteda")
 #' corp <- corpus_subset(data_corpus_inaugural, Year > 1970)
 #' # compare multiple documents
 #' textplot_xray(kwic(corp, pattern = "american"))
 #' textplot_xray(kwic(corp, pattern = "american"), scale = "absolute")
-#' 
+#'
 #' # compare multiple terms across multiple documents
-#' textplot_xray(kwic(corp, pattern = "america*"), 
+#' textplot_xray(kwic(corp, pattern = "america*"),
 #'               kwic(corp, pattern = "people"))
-#' 
+#'
 #' # how to modify the ggplot with different options
 #' library("ggplot2")
-#' tplot <- textplot_xray(kwic(corp, pattern = "american"), 
+#' tplot <- textplot_xray(kwic(corp, pattern = "american"),
 #'                        kwic(corp, pattern = "people"))
 #' tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
-#' 
+#'
 #' # adjust the names of the document names
 #' docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
-#' textplot_xray(kwic(corp, pattern = "america*"), 
+#' textplot_xray(kwic(corp, pattern = "america*"),
 #'               kwic(corp, pattern = "people"))
 #' @export
 #' @keywords textplot
@@ -49,7 +49,7 @@ textplot_xray <- function(..., scale = c("absolute", "relative"),
                           sort = FALSE) {
     UseMethod("textplot_xray")
 }
-    
+
 #' @export
 textplot_xray.default <- function(..., scale = c("absolute", "relative"),
                                   sort = FALSE) {
@@ -66,7 +66,7 @@ textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
     kwics <- list(...)
     if (!all(vapply(kwics, is.kwic, logical(1))))
         stop("objects to plot must be kwic objects")
-    
+
     # create a data.table from the kwic arguments
     x <- data.table(do.call(rbind, kwics))
     # use old variable name

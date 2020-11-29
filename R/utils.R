@@ -12,7 +12,7 @@ message_error <- quanteda:::message_error
 #' @return character string
 #' @keywords internal
 check_font <- function(font) {
-    
+
     if (is.null(font)) {
         font <- ""
     } else {

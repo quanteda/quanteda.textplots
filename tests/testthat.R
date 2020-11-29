@@ -8,4 +8,3 @@ library("quanteda.textplots")
 quanteda_options(reset = TRUE)
 
 test_check("quanteda.textplots")
-

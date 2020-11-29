@@ -92,11 +92,11 @@ fcm_select(fcmat, pattern = feat) \%>\%
 fcm_select(fcmat, pattern = feat) \%>\%
     textplot_network(vertex_labelsize = 10)
 fcm_30 <- fcm_select(fcmat, pattern = feat)
-textplot_network(fcm_30, 
+textplot_network(fcm_30,
                  vertex_labelsize = Matrix::rowSums(fcm_30) / min(Matrix::rowSums(fcm_30)))
 # Vector inputs to vertex_labelsize can be scaled if too small / large
-textplot_network(fcm_30, 
-                 vertex_labelsize = 1.5 * Matrix::rowSums(fcm_30) / 
+textplot_network(fcm_30,
+                 vertex_labelsize = 1.5 * Matrix::rowSums(fcm_30) /
                                     min(Matrix::rowSums(fcm_30)))
 
 # as.igraph
