@@ -9,11 +9,11 @@
 Text plotting functions formerly in the 'quanteda' package.
 }
 \author{
-\strong{Maintainer}: Kohei Watanabe \email{watanabe.kohei@gmail.com} (\href{https://orcid.org/0000-0001-6519-5265}{ORCID})
+\strong{Maintainer}: Kenneth Benoit \email{kbenoit@lse.ac.uk} (\href{https://orcid.org/0000-0002-0797-564X}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
-  \item Kenneth Benoit \email{kbenoit@lse.ac.uk} (\href{https://orcid.org/0000-0002-0797-564X}{ORCID}) [copyright holder]
+  \item Kohei Watanabe \email{watanabe.kohei@gmail.com} (\href{https://orcid.org/0000-0001-6519-5265}{ORCID})
   \item Haiyan Wang \email{whyinsa@yahoo.com} (\href{https://orcid.org/0000-0003-4992-4311}{ORCID})
   \item Adam Obeng \email{quanteda@binaryeagle.com} (\href{https://orcid.org/0000-0002-2906-4775}{ORCID})
   \item Stefan Müller \email{mullers@tcd.ie} (\href{https://orcid.org/0000-0002-6315-4125}{ORCID})

@@ -3,8 +3,8 @@ Title: Plotting and Visualisation for the Quantitative Analysis of Textual Data
 Version: 0.90
 Authors@R: 
     c( 
-    person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role = c("aut", "cph"), comment = c(ORCID = "0000-0002-0797-564X")), 
-    person("Kohei", "Watanabe", email = "watanabe.kohei@gmail.com", role = c("cre", "aut"), comment = c(ORCID = "0000-0001-6519-5265")), 
+    person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0002-0797-564X")), 
+    person("Kohei", "Watanabe", email = "watanabe.kohei@gmail.com", role = c("aut"), comment = c(ORCID = "0000-0001-6519-5265")), 
     person("Haiyan", "Wang", email = "whyinsa@yahoo.com", role = "aut", comment = c(ORCID = "0000-0003-4992-4311")),
     person("Adam", "Obeng", email = "quanteda@binaryeagle.com", role = "aut", comment = c(ORCID = "0000-0002-2906-4775")),
     person("Stefan", "Müller", email = "mullers@tcd.ie", role = "aut", comment = c(ORCID = "0000-0002-6315-4125")),
