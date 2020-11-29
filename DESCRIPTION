@@ -12,7 +12,10 @@ Authors@R:
     person("Ian", "Fellows", email = "ian@fellstat.com", role = "cph",  comment = "authored wordcloud C source code (modified)"),
     person("European Research Council", role = "fnd", comment = "ERC-2011-StG 283794-QUANTESS")
     )
-Description: Text plotting functions formerly in the 'quanteda' package.
+Description: Plotting functions for visualising textual data.   Extends 'quanteda' and 
+   related packages with plot methods designed specifically for text data, textual statistics, 
+   and models fit to textual data. Plot types include word clouds, lexical dispersion plots, 
+   scaling plots, network visualisations, and word keyness plots.
 License: GPL-3
 Imports:
     quanteda,
