@@ -49,22 +49,22 @@ test_that("raises error when dfm is empty (#1419)", {
 
     mx <- dfm_trim(data_dfm_lbgexample, 1000)
     expect_error(textplot_network(mx),
-                 quanteda:::message_error("dfm_empty"))
+                 quanteda.textplots:::message_error("dfm_empty"))
     expect_error(textplot_network(fcm(mx)),
-                 quanteda:::message_error("fcm_empty"))
+                 quanteda.textplots:::message_error("fcm_empty"))
     expect_error(textplot_wordcloud(mx),
-                 quanteda:::message_error("dfm_empty"))
+                 quanteda.textplots:::message_error("dfm_empty"))
 
 })
 
 test_that("remove_edges is working", {
 
     mt <- fcm(c("a a b", "a b", "c b"))
-    expect_identical(colnames(quanteda:::remove_edges(mt, 1, TRUE)),
+    expect_identical(colnames(quanteda.textplots:::remove_edges(mt, 1, TRUE)),
                      c("a", "b", "c"))
-    expect_identical(colnames(quanteda:::remove_edges(mt, 2, TRUE)),
+    expect_identical(colnames(quanteda.textplots:::remove_edges(mt, 2, TRUE)),
                      c("a", "b"))
-    expect_identical(Matrix::diag(quanteda:::remove_edges(mt, 1, FALSE)),
+    expect_identical(Matrix::diag(quanteda.textplots:::remove_edges(mt, 1, FALSE)),
                      c(0, 0, 0))
 
 })

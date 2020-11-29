@@ -169,4 +169,16 @@ test_that("phrasal patterns display correctly in textplot_kwic", {
     textplot_xray(kwic_list_bc, scale = "absolute")
 })
 
+test_that("textplot_xray works with new kwic, one token phrase", {
+    data_corpus_inauguralpost70 <- corpus_subset(data_corpus_inaugural, Year > 1970)
+    knew <- kwic(data_corpus_inauguralpost70, "american")
+    expect_silent(textplot_xray(knew))
+})
+
+test_that("textplot_xray works with new kwic, two token phrase", {
+    data_corpus_inauguralpost70 <- corpus_subset(data_corpus_inaugural, Year > 1970)
+    knew <- kwic(data_corpus_inauguralpost70, phrase("american people"))
+    expect_silent(textplot_xray(knew))
+})
+
 dev.off()
