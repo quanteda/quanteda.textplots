@@ -1,5 +1,3 @@
-context("test textplot_network.R")
-
 test_that("test textplot_network", {
     #skip_on_os("linux")
     txt <- "A D A C E A D F E B A C E D"

@@ -1,9 +1,7 @@
-context("test plots.R")
-
 pdf(file = tempfile(".pdf"), width = 10, height = 10)
 
 test_that("test textplot_scale1d wordfish in the most basic way", {
-    wf <- textmodel_wordfish(quanteda::dfm(data_corpus_irishbudget2010), dir = c(6, 5))
+    wf <- quanteda.textmodels::textmodel_wordfish(dfm(data_corpus_irishbudget2010), dir = c(6, 5))
     expect_false(identical(textplot_scale1d(wf, sort = TRUE),
                            textplot_scale1d(wf, sort = FALSE)))
     expect_silent(textplot_scale1d(wf, sort = TRUE,
