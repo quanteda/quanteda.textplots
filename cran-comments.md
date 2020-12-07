@@ -16,4 +16,4 @@ No ERRORs, NOTEs, or WARNINGs produced.
 
 ## Downstream dependencies
 
-This release causes no breaks in other packages, as checked via `revdepcheck::revdepcheck()`.
+This release causes no breaks in other packages, as checked via `revdepcheck::revdepcheck()`.  Which is to be expected as it has no reverse dependencies yet.
