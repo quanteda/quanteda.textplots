@@ -27,6 +27,8 @@ test_that("test textplot_scale1d wordscores in the most basic way", {
     mt <- dfm(data_corpus_irishbudget2010)
     ws <- quanteda.textmodels::textmodel_wordscores(mt, c(rep(NA, 4), -1, 1, rep(NA, 8)))
     pr <- suppressWarnings(predict(ws, mt, force = TRUE))
+    
+    ca <- quanteda.textmodels::textmodel_ca(mt)
 
     expect_false(identical(textplot_scale1d(pr, sort = TRUE),
                            textplot_scale1d(pr, sort = FALSE)))
@@ -39,6 +41,9 @@ test_that("test textplot_scale1d wordscores in the most basic way", {
                                                                  c("name", "party")),
                                                          1, paste, collapse = " ")))
 
+    expect_silent(textplot_scale1d(ca))
+    expect_silent(textplot_scale1d(ca, groups = quanteda::docvars(data_corpus_irishbudget2010, "party")))
+    
     p1 <- textplot_scale1d(ws, margin = "features", sort = TRUE)
     p2 <- textplot_scale1d(ws, margin = "features", sort = FALSE)
     p1$plot_env <- NULL
