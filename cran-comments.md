@@ -1,6 +1,13 @@
 # Submission notes
 
-- Creates a new package to enable us to modularise quanteda, for managing its size and for making maintenance easier.
+Creates a new package to enable us to modularise quanteda, for managing its size and for making maintenance easier.
+
+# RESUBMISSION NOTES
+
+* Shortened the title to less than 65 characters
+* Used on.exit() as advised, after setting the new par() all.
+
+# Checks
 
 ## Test environments
 

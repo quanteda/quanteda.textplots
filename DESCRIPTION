@@ -1,5 +1,5 @@
 Package: quanteda.textplots
-Title: Plotting and Visualisation for the Quantitative Analysis of Textual Data
+Title: Plots for the Quantitative Analysis of Textual Data
 Version: 0.90
 Authors@R: 
     c( 

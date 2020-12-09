@@ -282,6 +282,7 @@ wordcloud <- function(x, min_size, max_size, min_count, max_words,
     r_step <- 0.05
 
     op <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(op))
     graphics::par(mar = c(0, 0, 0, 0), usr = c(-1, 1, -1, 1), family = font)
     graphics::plot.new()
 
@@ -445,6 +446,7 @@ wordcloud_comparison <- function(x, min_size, max_size, min_count, max_words,
     r_step <- 0.05
 
     op <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(op))
     graphics::par(mar = c(0, 0, 0, 0), usr = c(-1, 1, -1, 1), family = font)
     graphics::plot.new()
     if (labelsize > 0) {

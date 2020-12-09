@@ -4,7 +4,7 @@
 \name{quanteda.textplots-package}
 \alias{quanteda.textplots}
 \alias{quanteda.textplots-package}
-\title{quanteda.textplots: Plotting and Visualisation for the Quantitative Analysis of Textual Data}
+\title{quanteda.textplots: Plots for the Quantitative Analysis of Textual Data}
 \description{
 Plotting functions for visualising textual data.  Extends 'quanteda' and 
    related packages with plot methods designed specifically for text data, textual statistics, 
