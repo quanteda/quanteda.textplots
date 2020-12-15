@@ -6,3 +6,4 @@
 ^LICENSE$
 ^\.github$
 ^\.lintr$
+^CRAN-RELEASE$

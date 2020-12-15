@@ -77,11 +77,11 @@ top \code{max_words / 2} terms are plotted from the target and reference
 categories.}
 }
 \description{
-Plot a \link{dfm} or \link{textstat_keyness} object as a wordcloud, where the feature
-labels are plotted with their sizes proportional to their numerical values in
-the dfm.  When \code{comparison = TRUE}, it plots comparison word clouds by
-document (or by target and reference categories in the case of a keyness
-object).
+Plot a \link{dfm} or \link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness} object as a wordcloud,
+where the feature labels are plotted with their sizes proportional to their
+numerical values in the dfm.  When \code{comparison = TRUE}, it plots comparison
+word clouds by document (or by target and reference categories in the case of
+a keyness object).
 }
 \details{
 The default is to plot the word cloud of all features, summed across

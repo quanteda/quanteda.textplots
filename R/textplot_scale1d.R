@@ -1,15 +1,16 @@
 #' Plot a fitted scaling model
 #'
 #' Plot the results of a fitted scaling model, from (e.g.) a predicted
-#' [textmodel_wordscores] model or a fitted [textmodel_wordfish]
-#' or [textmodel_ca]
-#' model. Either document or feature parameters may be plotted: an ideal
-#' point-style plot (estimated document position plus confidence interval on the
-#' x-axis, document labels on the y-axis) with optional renaming and sorting, or
-#' as a plot of estimated feature-level parameters (estimated feature positions
-#' on the x-axis, and a measure of relative frequency or influence on the
-#' y-axis, with feature names replacing plotting points with some being chosen
-#' by the user to be highlighted).
+#' [quanteda.textmodels::textmodel_wordscores] model or a fitted
+#' [quanteda.textmodels::textmodel_wordfish] or
+#' [quanteda.textmodels::textmodel_ca] model. Either document or feature
+#' parameters may be plotted: an ideal point-style plot (estimated document
+#' position plus confidence interval on the x-axis, document labels on the
+#' y-axis) with optional renaming and sorting, or as a plot of estimated
+#' feature-level parameters (estimated feature positions on the x-axis, and a
+#' measure of relative frequency or influence on the y-axis, with feature names
+#' replacing plotting points with some being chosen by the user to be
+#' highlighted).
 #' @param x the fitted or predicted scaling model object to be plotted
 #' @param margin `"documents"` to plot estimated document scores (the
 #'   default) or `"features"` to plot estimated feature scores by a measure
@@ -30,8 +31,9 @@
 #' @note The `groups` argument only applies when `margin = "documents"`.
 #' @export
 #' @author Kenneth Benoit, Stefan Müller, and Adam Obeng
-#' @seealso [textmodel_wordfish()], [textmodel_wordscores()],
-#'   [textmodel_ca()]
+#' @seealso [quanteda.textmodels::textmodel_wordfish()],
+#'   [quanteda.textmodels::textmodel_wordscores()],
+#'   [quanteda.textmodels::textmodel_ca()]
 #' @keywords textplot
 #' @importMethodsFrom Matrix colSums rowSums t
 #' @examples

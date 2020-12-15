@@ -49,15 +49,16 @@ a \pkg{ggplot2} object
 }
 \description{
 Plot the results of a fitted scaling model, from (e.g.) a predicted
-\link{textmodel_wordscores} model or a fitted \link{textmodel_wordfish}
-or \link{textmodel_ca}
-model. Either document or feature parameters may be plotted: an ideal
-point-style plot (estimated document position plus confidence interval on the
-x-axis, document labels on the y-axis) with optional renaming and sorting, or
-as a plot of estimated feature-level parameters (estimated feature positions
-on the x-axis, and a measure of relative frequency or influence on the
-y-axis, with feature names replacing plotting points with some being chosen
-by the user to be highlighted).
+\link[quanteda.textmodels:textmodel_wordscores]{quanteda.textmodels::textmodel_wordscores} model or a fitted
+\link[quanteda.textmodels:textmodel_wordfish]{quanteda.textmodels::textmodel_wordfish} or
+\link[quanteda.textmodels:textmodel_ca]{quanteda.textmodels::textmodel_ca} model. Either document or feature
+parameters may be plotted: an ideal point-style plot (estimated document
+position plus confidence interval on the x-axis, document labels on the
+y-axis) with optional renaming and sorting, or as a plot of estimated
+feature-level parameters (estimated feature positions on the x-axis, and a
+measure of relative frequency or influence on the y-axis, with feature names
+replacing plotting points with some being chosen by the user to be
+highlighted).
 }
 \note{
 The \code{groups} argument only applies when \code{margin = "documents"}.
@@ -95,8 +96,9 @@ textplot_scale1d(tmod3, margin = "documents",
                  groups = docvars(data_corpus_irishbudget2010, "party"))
 }
 \seealso{
-\code{\link[=textmodel_wordfish]{textmodel_wordfish()}}, \code{\link[=textmodel_wordscores]{textmodel_wordscores()}},
-\code{\link[=textmodel_ca]{textmodel_ca()}}
+\code{\link[quanteda.textmodels:textmodel_wordfish]{quanteda.textmodels::textmodel_wordfish()}},
+\code{\link[quanteda.textmodels:textmodel_wordscores]{quanteda.textmodels::textmodel_wordscores()}},
+\code{\link[quanteda.textmodels:textmodel_ca]{quanteda.textmodels::textmodel_ca()}}
 }
 \author{
 Kenneth Benoit, Stefan Müller, and Adam Obeng
