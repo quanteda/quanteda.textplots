@@ -56,8 +56,8 @@ textplot_xray.default <- function(..., scale = c("absolute", "relative"),
     stop(friendly_class_undefined_message(..., "textplot_xray"))
 }
 
-#' @importFrom data.table data.table :=
-#' @importFrom quanteda is.kwic
+#' @importFrom data.table data.table := rbindlist
+#' @importFrom quanteda is.kwic ntoken
 #' @export
 textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
                                sort = FALSE) {
@@ -68,11 +68,18 @@ textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
         stop("objects to plot must be kwic objects")
 
     # create a data.table from the kwic arguments
-    x <- data.table(do.call(rbind, kwics))
+    x <- rbindlist(lapply(kwics, as.data.frame))
     # use old variable name
     x[, position := from]
     # get the vector of ntokens
-    ntokensbydoc <- unlist(lapply(kwics, attr, "ntoken"))
+    ntokensbydoc <- if (is.null(attr(kwics[[1]], "ntoken"))) {
+        # if v3
+        unlist(lapply(kwics, function(y) ntoken(attr(y, "tokens"))))
+    } else {
+        # if pre-v3
+        unlist(lapply(kwics, attr, "ntoken"))
+    }
+    
     # add ntokens to data.table as an indexed "merge"
     x[, ntokens := ntokensbydoc[as.character(x[, docname])]]
 
