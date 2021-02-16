@@ -33,6 +33,7 @@
 #' textplot_xray(kwic(corp, pattern = "america*"),
 #'               kwic(corp, pattern = "people"))
 #'
+#' \dontrun{
 #' # how to modify the ggplot with different options
 #' library("ggplot2")
 #' tplot <- textplot_xray(kwic(corp, pattern = "american"),
@@ -43,6 +44,7 @@
 #' docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
 #' textplot_xray(kwic(corp, pattern = "america*"),
 #'               kwic(corp, pattern = "people"))
+#' }
 #' @export
 #' @keywords textplot
 textplot_xray <- function(..., scale = c("absolute", "relative"),

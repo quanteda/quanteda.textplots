@@ -52,6 +52,7 @@ textplot_xray(kwic(corp, pattern = "american"), scale = "absolute")
 textplot_xray(kwic(corp, pattern = "america*"),
               kwic(corp, pattern = "people"))
 
+\dontrun{
 # how to modify the ggplot with different options
 library("ggplot2")
 tplot <- textplot_xray(kwic(corp, pattern = "american"),
@@ -62,5 +63,6 @@ tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
 docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
 textplot_xray(kwic(corp, pattern = "america*"),
               kwic(corp, pattern = "people"))
+}
 }
 \keyword{textplot}
