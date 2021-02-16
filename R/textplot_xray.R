@@ -58,21 +58,17 @@ textplot_xray.default <- function(..., scale = c("absolute", "relative"),
     stop(friendly_class_undefined_message(..., "textplot_xray"))
 }
 
-#' @importFrom data.table data.table := rbindlist
 #' @importFrom quanteda is.kwic ntoken
 #' @export
 textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
                                sort = FALSE) {
-    position <- from <- keyword <- docname <- ntokens <- NULL
-
     kwics <- list(...)
     if (!all(vapply(kwics, is.kwic, logical(1))))
         stop("objects to plot must be kwic objects")
 
-    # create a data.table from the kwic arguments
-    x <- rbindlist(lapply(kwics, as.data.frame))
-    # use old variable name
-    x[, position := from]
+    # create a single data.frame from kwics
+    x <- do.call(rbind, lapply(kwics, as.data.frame))
+    
     # get the vector of ntokens
     ntokensbydoc <- if (is.null(attr(kwics[[1]], "ntoken"))) {
         # if v3
@@ -81,22 +77,17 @@ textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
         # if pre-v3
         unlist(lapply(kwics, attr, "ntoken"))
     }
-    
-    # add ntokens to data.table as an indexed "merge"
-    x[, ntokens := ntokensbydoc[as.character(x[, docname])]]
+    x$ntokens <- ntokensbydoc[x$docname]
 
     # replace "found" keyword with patterned keyword
-    x[, keyword := unlist(lapply(kwics, function(l) l[["pattern"]]))]
+    x$keyword <- unlist(lapply(kwics, function(l) l[["pattern"]]))
 
-    # pre-emptively convert keyword to factor before ggplot does it, so that we
-    # can keep the order of the factor the same as the order of the kwic objects
-    # x[, keyword := factor(keyword, levels = unique(keyword))]
 
     multiple_documents <- length(unique(x$docname)) > 1
 
     # Deal with the scale argument:
     # if there is a user-supplied value, use that after passing through
-    # match.argj; if not, use relative for multiple documents and absolute
+    # match.arg; if not, use relative for multiple documents and absolute
     # for single documents
     if (!missing(scale)) {
         scale <- match.arg(scale)
@@ -110,17 +101,18 @@ textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
     }
 
     # Deal with the sort argument:
-    if (sort) {
-        x[, docname := factor(docname)] # levels are sorted by default
+    x$docname <- if (sort) {
+        factor(x$docname) # levels are sorted by default
     } else {
-        x[, docname := factor(docname, levels = unique(docname))]
+        factor(x$docname, levels = unique(x$docname))
     }
-
+    
     if (scale == "relative")
-        x[, position := position / ntokens]
+        x$from <- x$from / x$ntokens
 
-    plot <- ggplot2::ggplot(x, ggplot2::aes(x = position, y = 1)) +
-        ggplot2::geom_segment(ggplot2::aes(xend = position, yend = 0)) +
+    from <- ntokens <- NULL
+    plot <- ggplot2::ggplot(x, ggplot2::aes(x = from, y = 1)) +
+        ggplot2::geom_segment(ggplot2::aes(xend = from, yend = 0)) +
         ggplot2::theme(axis.line = ggplot2::element_blank(),
                        panel.background = ggplot2::element_blank(),
                        panel.grid.major.y = ggplot2::element_blank(),
