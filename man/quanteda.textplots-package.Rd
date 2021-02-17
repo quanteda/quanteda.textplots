@@ -11,6 +11,13 @@ Plotting functions for visualising textual data.  Extends 'quanteda' and
    and models fit to textual data. Plot types include word clouds, lexical dispersion plots, 
    scaling plots, network visualisations, and word 'keyness' plots.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item Report bugs at \url{https://github.com/quanteda/quanteda.textplots/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Kenneth Benoit \email{kbenoit@lse.ac.uk} (\href{https://orcid.org/0000-0002-0797-564X}{ORCID}) [copyright holder]
 
