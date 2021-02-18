@@ -1,11 +1,6 @@
 # Submission notes
 
-Creates a new package to enable us to modularise quanteda, for managing its size and for making maintenance easier.
-
-# RESUBMISSION NOTES
-
-* Shortened the title to less than 65 characters
-* Used on.exit() as advised, after setting the new par() all.
+Updates to remove minor warnings and to ensure compatibility with forthcoming quanteda v3.
 
 # Checks
 
@@ -21,6 +16,6 @@ Creates a new package to enable us to modularise quanteda, for managing its size
 No ERRORs, NOTEs, or WARNINGs produced.
 
 
-## Downstream dependencies
+## Dependency conflicts
 
-This release causes no breaks in other packages, as checked via `revdepcheck::revdepcheck()`.  Which is to be expected as it has no reverse dependencies yet.
+None: This release causes no breaks in other packages, as checked via `revdepcheck::revdepcheck()`.
