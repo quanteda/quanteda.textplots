@@ -84,7 +84,8 @@ test_that("as.network.fcm works", {
     net <- as.network(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(network::is.network(net))
     expect_identical(network::network.vertex.names(net), featnames(mat))
-    expect_identical(network::get.vertex.attribute(net, "frequency"), unname(mat@margin))
+    expect_identical(network::get.vertex.attribute(net, "frequency"), 
+                     unname(quanteda.textplots:::get_margin(mat)))
     expect_silent(as.network(mat, min_freq = 3, omit_isolated = TRUE))
 })
 
@@ -94,7 +95,8 @@ test_that("as.network.fcm works with window", {
     net <- as.network(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(network::is.network(net))
     expect_identical(network::network.vertex.names(net), featnames(mat))
-    expect_identical(network::get.vertex.attribute(net, "frequency"), unname(mat@margin))
+    expect_identical(network::get.vertex.attribute(net, "frequency"), 
+                     unname(quanteda.textplots:::get_margin(mat)))
     expect_silent(as.network(mat, min_freq = 3, omit_isolated = TRUE))
 })
 
@@ -105,7 +107,8 @@ test_that("as.igraph.fcm works", {
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(igraph::is.igraph(net))
     expect_identical(igraph::vertex_attr(net, "name"), featnames(mat))
-    expect_identical(igraph::vertex_attr(net, "frequency"), unname(mat@margin))
+    expect_identical(igraph::vertex_attr(net, "frequency"), 
+                     unname(quanteda.textplots:::get_margin(mat)))
     expect_silent(as.igraph(mat, min_freq = 3, omit_isolated = TRUE))
 })
 
@@ -117,6 +120,7 @@ test_that("as.igraph.fcm works with window", {
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(igraph::is.igraph(net))
     expect_identical(igraph::vertex_attr(net, "name"), featnames(mat))
-    expect_identical(igraph::vertex_attr(net, "frequency"), unname(mat@margin))
+    expect_identical(igraph::vertex_attr(net, "frequency"), 
+                     unname(quanteda.textplots:::get_margin(mat)))
     expect_silent(as.igraph(mat, min_freq = 3, omit_isolated = TRUE))
 })
