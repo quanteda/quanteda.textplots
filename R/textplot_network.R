@@ -165,14 +165,15 @@ as.network.default <- function(x, ...) {
 }
 
 #' @rdname textplot_network
-#' @importFrom quanteda nfeat
+#' @importFrom quanteda nfeat meta
 #' @method as.network fcm
+#' @importFrom methods .hasSlot
 #' @export
 #' @seealso [network::network()]
 as.network.fcm <- function(x, min_freq = 0.5, omit_isolated = TRUE, ...) {
 
     if (nfeat(x) > 1000) stop("fcm is too large for a network plot")
-    f <- x@margin
+    f <- get_margin(x)
     x <- remove_edges(x, min_freq, omit_isolated)
     x <- network::network(as.matrix(x), matrix.type = "adjacency", directed = FALSE,
                           ignore.eval = FALSE, names.eval = "weight", ...)
@@ -201,7 +202,7 @@ as.igraph <- function(x, ...) UseMethod("as.igraph")
 #'     as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
 #' }
 as.igraph.fcm <- function(x, min_freq = 0.5, omit_isolated = TRUE, ...) {
-    f <- x@margin
+    f <- get_margin(x)
     x <- remove_edges(x, min_freq, omit_isolated)
     x <- igraph::graph_from_adjacency_matrix(x, ...)
     igraph::set_vertex_attr(x, "frequency", value = f[igraph::vertex_attr(x, "name")])
@@ -209,8 +210,18 @@ as.igraph.fcm <- function(x, min_freq = 0.5, omit_isolated = TRUE, ...) {
 
 # internal ----------
 
-remove_edges <- function(x, min_freq, omit_isolated) {
+# return the slot "margin" or get from object meta for quanteda >= v3
+get_margin <- function(x) {
+    if (.hasSlot(x, "margin")) {
+        # pre-v3
+        x@margin
+    } else {
+        # quanteda >= v3
+        meta(x, "margin", type = "object")
+    }
+}
 
+remove_edges <- function(x, min_freq, omit_isolated) {
     Matrix::diag(x) <- 0
     x <- methods::as(x, "dgTMatrix")
 

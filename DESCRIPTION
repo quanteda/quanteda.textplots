@@ -19,7 +19,6 @@ Description: Plotting functions for visualising textual data.  Extends 'quanteda
 License: GPL-3
 Imports:
     quanteda,
-    data.table,
     extrafont,
     ggplot2,
     ggrepel,
