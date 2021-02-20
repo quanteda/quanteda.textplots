@@ -2,6 +2,8 @@
 
 Updates to remove minor warnings and to ensure compatibility with forthcoming quanteda v3.
 
+This new submission comes so soon after submitting 0.92 this morning, because I mistakenly submitted the wrong branch.
+
 # Checks
 
 ## Test environments
