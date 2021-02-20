@@ -1,4 +1,4 @@
-# quanteda.textplots 0.92
+# quanteda.textplots 0.93
 
 * Updates fcm and kwic plot methods for quanteda v3.
 * Removes dependency on data.table.
