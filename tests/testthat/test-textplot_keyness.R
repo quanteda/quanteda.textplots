@@ -1,9 +1,13 @@
+library("quanteda")
+
 pdf(file = tempfile(".pdf"), width = 10, height = 10)
 
 test_that("test textplot_keyness: show_reference works correctly ", {
-    prescorpus <- corpus_subset(data_corpus_inaugural, President %in% c("Obama", "Trump"))
-    presdfm <- dfm(prescorpus, groups = "President", remove = stopwords("english"),
-                   remove_punct = TRUE)
+    presdfm <- corpus_subset(data_corpus_inaugural, President %in% c("Obama", "Trump")) %>%
+        tokens(remove_punct = TRUE) %>%
+        tokens_remove(stopwords("en")) %>%
+        dfm()
+    presdfm <- dfm_group(presdfm, groups = presdfm$President)
     result <- quanteda.textstats::textstat_keyness(presdfm, target = "Trump")
 
     k <- 10

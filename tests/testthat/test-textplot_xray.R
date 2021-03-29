@@ -1,11 +1,12 @@
+library("quanteda")
+
 pdf(file = tempfile(".pdf"), width = 10, height = 10)
 
 test_that("test plot.kwic scale argument default", {
-
-    sda <- kwic(texts(data_corpus_inaugural)[[1]], "american")
-    sdp <- kwic(texts(data_corpus_inaugural)[[1]], "people")
-    mda <- kwic(data_corpus_inaugural, "american")
-    mdp <- kwic(data_corpus_inaugural, "people")
+    sda <- kwic(tokens(data_corpus_inaugural[[1]]), "american")
+    sdp <- kwic(tokens(data_corpus_inaugural[[1]]), "people")
+    mda <- kwic(tokens(data_corpus_inaugural), "american")
+    mdp <- kwic(tokens(data_corpus_inaugural), "people")
 
     # Single document, should be absolute
     p <- textplot_xray(sda)
@@ -41,14 +42,10 @@ test_that("test plot.kwic scale argument default", {
     expect_equal(p$labels$x, "Relative token index")
     p <- textplot_xray(mda, mdp, scale = "relative")
     expect_equal(p$labels$x, "Relative token index")
-
-
 })
 
-
 test_that("test plot.kwic facet order parameter", {
-
-    p <- textplot_xray(kwic(data_corpus_inaugural, "american"), sort = TRUE)
+    p <- textplot_xray(kwic(tokens(data_corpus_inaugural), "american"), sort = TRUE)
     plot_docnames <- as.character(unique(ggplot2::ggplot_build(p)$layout$panel_layout$docname))
     if (identical(plot_docnames, character(0))) {
         plot_docnames <- as.character(unique(ggplot2::ggplot_build(p)$layout$layout$docname))
@@ -58,8 +55,8 @@ test_that("test plot.kwic facet order parameter", {
             plot_docnames[order(plot_docnames)] == plot_docnames
         )
     )
-    p <- textplot_xray(kwic(data_corpus_inaugural, "american"),
-                       kwic(data_corpus_inaugural, "people"),
+    p <- textplot_xray(kwic(tokens(data_corpus_inaugural), "american"),
+                       kwic(tokens(data_corpus_inaugural), "people"),
                        sort = TRUE)
     plot_docnames <- as.character(unique(ggplot2::ggplot_build(p)$layout$panel_layout$docname))
     if (identical(plot_docnames, character(0))) {
@@ -72,8 +69,8 @@ test_that("test plot.kwic facet order parameter", {
     )
 
     # Default should be false
-    p <- textplot_xray(kwic(data_corpus_inaugural[c(53:54, 1:2)], "american"),
-                       kwic(data_corpus_inaugural[c(53:54, 1:2)], "people"))
+    p <- textplot_xray(kwic(tokens(data_corpus_inaugural[c(53:54, 1:2)]), "american"),
+                       kwic(tokens(data_corpus_inaugural[c(53:54, 1:2)]), "people"))
     plot_docnames <- as.character(unique(ggplot2::ggplot_build(p)$layout$panel_layout$docname))
     if (identical(plot_docnames, character(0))) {
         plot_docnames <- as.character(unique(ggplot2::ggplot_build(p)$layout$layout$docname))
@@ -83,7 +80,6 @@ test_that("test plot.kwic facet order parameter", {
             plot_docnames[order(plot_docnames)] == plot_docnames
         )
     )
-
 })
 
 # test_that("test plot.kwic keeps order of keywords passed", {
@@ -171,13 +167,13 @@ test_that("phrasal patterns display correctly in textplot_kwic", {
 
 test_that("textplot_xray works with new kwic, one token phrase", {
     data_corpus_inauguralpost70 <- corpus_subset(data_corpus_inaugural, Year > 1970)
-    knew <- kwic(data_corpus_inauguralpost70, "american")
+    knew <- kwic(tokens(data_corpus_inauguralpost70), "american")
     expect_silent(textplot_xray(knew))
 })
 
 test_that("textplot_xray works with new kwic, two token phrase", {
     data_corpus_inauguralpost70 <- corpus_subset(data_corpus_inaugural, Year > 1970)
-    knew <- kwic(data_corpus_inauguralpost70, phrase("american people"))
+    knew <- kwic(tokens(data_corpus_inauguralpost70), phrase("american people"))
     expect_silent(textplot_xray(knew))
 })
 

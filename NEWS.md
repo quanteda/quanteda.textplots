@@ -1,3 +1,7 @@
+# quanteda.textplots 0.94
+
+* Further updates in preparation for quanteda v3.
+
 # quanteda.textplots 0.93
 
 * Updates fcm and kwic plot methods for quanteda v3.

@@ -1,8 +1,10 @@
+library("quanteda")
+
 test_that("test textplot_network", {
     #skip_on_os("linux")
     txt <- "A D A C E A D F E B A C E D"
-    testfcm <- fcm(txt, context = "window", window = 3, tri = FALSE)
-    testdfm <- dfm(txt)
+    testfcm <- fcm(tokens(txt), context = "window", window = 3, tri = FALSE)
+    testdfm <- dfm(tokens(txt))
     expect_silent(textplot_network(testfcm, vertex_color = "red", offset = 0.1))
     expect_silent(textplot_network(testdfm, offset = 0.1))
     expect_error(textplot_network(testfcm, min_freq = 100),
@@ -13,12 +15,11 @@ test_that("test textplot_network", {
     expect_silent(textplot_network(testfcm, edge_color = 2))
 })
 
-
 test_that("test textplot_network works with vectorlized argument", {
     #skip_on_os("linux")
     txt <- "A D A C E A D F E B A C E D"
 
-    testfcm <- fcm(txt, context = "window", window = 3, tri = FALSE)
+    testfcm <- fcm(tokens(txt), context = "window", window = 3, tri = FALSE)
     expect_silent(textplot_network(testfcm, vertex_color = rep(c(1, 2), nrow(testfcm) / 2)))
     expect_silent(textplot_network(testfcm, vertex_size = Matrix::rowSums(testfcm) / 5))
     expect_silent(textplot_network(testfcm, vertex_labelcolor = rep(c(1, NA), nrow(testfcm) / 2)))
@@ -26,14 +27,14 @@ test_that("test textplot_network works with vectorlized argument", {
 })
 
 test_that("textplot_network error when fcm is too large", {
-    testdfm <- fcm(data_corpus_inaugural[1:5])
+    testdfm <- fcm(tokens(data_corpus_inaugural[1:5]))
     expect_error(textplot_network(testdfm, min_freq = 1, offset = 0, omit_isolated = FALSE),
                  "fcm is too large for a network plot")
 })
 
 test_that("test textplot_network font-selection", {
     skip_on_os("linux")
-    txt <- "A D A C E A D F E B A C E D"
+    txt <- tokens("A D A C E A D F E B A C E D")
     testfcm <- fcm(txt, context = "window", window = 3, tri = FALSE)
     testdfm <- dfm(txt)
     expect_silent(textplot_network(testfcm, offset = 0.1,
@@ -46,7 +47,6 @@ test_that("test textplot_network font-selection", {
 })
 
 test_that("raises error when dfm is empty (#1419)", {
-
     mx <- dfm_trim(data_dfm_lbgexample, 1000)
     expect_error(textplot_network(mx),
                  quanteda.textplots:::message_error("dfm_empty"))
@@ -58,15 +58,13 @@ test_that("raises error when dfm is empty (#1419)", {
 })
 
 test_that("remove_edges is working", {
-
-    mt <- fcm(c("a a b", "a b", "c b"))
+    mt <- fcm(tokens(c("a a b", "a b", "c b")))
     expect_identical(colnames(quanteda.textplots:::remove_edges(mt, 1, TRUE)),
                      c("a", "b", "c"))
     expect_identical(colnames(quanteda.textplots:::remove_edges(mt, 2, TRUE)),
                      c("a", "b"))
     expect_identical(Matrix::diag(quanteda.textplots:::remove_edges(mt, 1, FALSE)),
                      c(0, 0, 0))
-
 })
 
 # test_that("error when fcm is ordered", {
@@ -79,7 +77,7 @@ test_that("remove_edges is working", {
 # })
 
 test_that("as.network.fcm works", {
-    txt <- c("a a a b b c", "a a c e", "a c e f g")
+    txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
     mat <- fcm(txt)
     net <- as.network(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(network::is.network(net))
@@ -90,7 +88,7 @@ test_that("as.network.fcm works", {
 })
 
 test_that("as.network.fcm works with window", {
-    txt <- c("a a a b b c", "a a c e", "a c e f g")
+    txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
     mat <- fcm(txt, contex = "window", window = 2)
     net <- as.network(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(network::is.network(net))
@@ -102,7 +100,7 @@ test_that("as.network.fcm works with window", {
 
 test_that("as.igraph.fcm works", {
     skip_if_not_installed("igraph")
-    txt <- c("a a a b b c", "a a c e", "a c e f g")
+    txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
     mat <- fcm(txt)
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(igraph::is.igraph(net))
@@ -115,7 +113,7 @@ test_that("as.igraph.fcm works", {
 test_that("as.igraph.fcm works with window", {
     skip_if_not_installed("igraph")
     skip_on_os("linux")
-    txt <- c("a a a b b c", "a a c e", "a c e f g")
+    txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
     mat <- fcm(txt, contex = "window", window = 2)
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(igraph::is.igraph(net))

@@ -28,20 +28,26 @@
 #' # compare Trump speeches to other Presidents by chi^2
 #' dfmat1 <- data_corpus_inaugural %>%
 #'      corpus_subset(Year > 1980) %>%
-#'      dfm(groups = "President", remove = stopwords("english"), remove_punct = TRUE)
+#'      tokens(remove_punct = TRUE) %>%
+#'      tokens_remove(stopwords("en")) %>%
+#'      dfm()
+#' dfmat1 <- dfm_group(dfmat1, groups = dfmat1$President)
+#' tstat1 <- quanteda.textstats::textstat_keyness(dfmat1, target = "Trump")
+#' textplot_keyness(tstat1, margin = 0.2, n = 10)
 #' tstat1 <- quanteda.textstats::textstat_keyness(dfmat1, target = "Trump")
 #' textplot_keyness(tstat1, margin = 0.2, n = 10)
 #'
 #' # compare contemporary Democrats v. Republicans
 #' corp <- data_corpus_inaugural %>%
 #'     corpus_subset(Year > 1960)
-#' docvars(corp, "party") <-
-#'     ifelse(docvars(corp, "President") %in% c("Nixon", "Reagan", "Bush", "Trump"),
-#'            "Republican", "Democrat")
-#' dfmat2 <- dfm(corp, groups = "party", remove = stopwords("english"),
-#'               remove_punct = TRUE)
-#' tstat2 <- quanteda.textstats::textstat_keyness(dfmat2, target = "Democrat",
-#'                                                measure = "lr")
+#' corp$party <- ifelse(docvars(corp, "President") %in% c("Nixon", "Reagan", "Bush", "Trump"),
+#'                      "Republican", "Democrat")
+#' dfmat2 <- corp %>%
+#'     tokens(remove_punct = TRUE) %>%
+#'     tokens_remove(stopwords("en")) %>%
+#'     dfm()
+#' tstat2 <- quanteda.textstats::textstat_keyness(dfm_group(dfmat2, groups = dfmat2$party),
+#'                                                target = "Democrat", measure = "lr")
 #' textplot_keyness(tstat2, color = c("blue", "red"), n = 10)
 textplot_keyness <-  function(x, show_reference = TRUE, show_legend = TRUE,
                               n = 20L, min_count = 2L, margin = 0.05,
