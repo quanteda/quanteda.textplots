@@ -1,6 +1,6 @@
 Package: quanteda.textplots
 Title: Plots for the Quantitative Analysis of Textual Data
-Version: 0.93
+Version: 0.94
 Authors@R: 
     c( 
     person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0002-0797-564X")), 
