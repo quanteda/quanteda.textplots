@@ -47,7 +47,7 @@ test_that("test textplot_network font-selection", {
 })
 
 test_that("raises error when dfm is empty (#1419)", {
-    mx <- dfm_trim(data_dfm_lbgexample, 1000)
+    mx <- dfm_trim(quanteda::data_dfm_lbgexample, 1000)
     expect_error(textplot_network(mx),
                  quanteda.textplots:::message_error("dfm_empty"))
     expect_error(textplot_network(fcm(mx)),

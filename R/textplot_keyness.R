@@ -24,6 +24,7 @@
 #' @seealso [quanteda.textstats::textstat_keyness()]
 #' @keywords textplot
 #' @examples
+#' \dontrun{
 #' library("quanteda")
 #' # compare Trump speeches to other Presidents by chi^2
 #' dfmat1 <- data_corpus_inaugural %>%
@@ -49,6 +50,7 @@
 #' tstat2 <- quanteda.textstats::textstat_keyness(dfm_group(dfmat2, groups = dfmat2$party),
 #'                                                target = "Democrat", measure = "lr")
 #' textplot_keyness(tstat2, color = c("blue", "red"), n = 10)
+#' }
 textplot_keyness <-  function(x, show_reference = TRUE, show_legend = TRUE,
                               n = 20L, min_count = 2L, margin = 0.05,
                               color = c("darkblue", "gray"), labelcolor = "gray30",

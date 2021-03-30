@@ -52,6 +52,7 @@ associations with a target and a reference group, after calculating keyness
 using \code{\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness()}}.
 }
 \examples{
+\dontrun{
 library("quanteda")
 # compare Trump speeches to other Presidents by chi^2
 dfmat1 <- data_corpus_inaugural \%>\%
@@ -77,6 +78,7 @@ dfmat2 <- corp \%>\%
 tstat2 <- quanteda.textstats::textstat_keyness(dfm_group(dfmat2, groups = dfmat2$party),
                                                target = "Democrat", measure = "lr")
 textplot_keyness(tstat2, color = c("blue", "red"), n = 10)
+}
 }
 \seealso{
 \code{\link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness()}}

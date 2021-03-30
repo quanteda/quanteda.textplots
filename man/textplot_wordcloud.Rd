@@ -129,6 +129,7 @@ dfmat2 <- dfm_group(dfmat2, dfmat2$President) \%>\%
 textplot_wordcloud(dfmat2, comparison = TRUE, max_words = 100,
                    color = c("blue", "red"))
 
+\dontrun{
 # for keyness
 tstat <- data_corpus_inaugural[c(1, 3)] \%>\%
     tokens(remove_punct = TRUE) \%>\%
@@ -137,6 +138,7 @@ tstat <- data_corpus_inaugural[c(1, 3)] \%>\%
     quanteda.textstats::textstat_keyness()
 textplot_wordcloud(tstat, min_count = 2)
 textplot_wordcloud(tstat, min_count = 2, comparison = FALSE)
+}
 }
 \author{
 Kohei Watanabe, building on code from Ian Fellows's \pkg{wordcloud}

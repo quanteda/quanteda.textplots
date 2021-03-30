@@ -7,6 +7,7 @@ test_that("test textplot_wordcloud works for dfm objects", {
 })
 
 test_that("test textplot_wordcloud works for keyness objects", {
+    skip("until quanteda.textstats is updated")
     tstat <- head(data_corpus_inaugural, 2) %>%
         tokens() %>%
         tokens_remove(stopwords("en")) %>%

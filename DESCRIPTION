@@ -42,7 +42,6 @@ Suggests:
     wordcloud
 Encoding: UTF-8
 BugReports: https://github.com/quanteda/quanteda.textplots/issues
-LazyData: true
 Language: en-GB
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1

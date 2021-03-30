@@ -88,6 +88,7 @@
 #' textplot_wordcloud(dfmat2, comparison = TRUE, max_words = 100,
 #'                    color = c("blue", "red"))
 #'
+#' \dontrun{
 #' # for keyness
 #' tstat <- data_corpus_inaugural[c(1, 3)] %>%
 #'     tokens(remove_punct = TRUE) %>%
@@ -96,6 +97,7 @@
 #'     quanteda.textstats::textstat_keyness()
 #' textplot_wordcloud(tstat, min_count = 2)
 #' textplot_wordcloud(tstat, min_count = 2, comparison = FALSE)
+#' }
 textplot_wordcloud <- function(x,
                                min_size = 0.5,
                                max_size = 4,
