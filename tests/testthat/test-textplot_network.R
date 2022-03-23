@@ -63,7 +63,7 @@ test_that("remove_edges is working", {
                      c("a", "b", "c"))
     expect_identical(colnames(quanteda.textplots:::remove_edges(mt, 2, TRUE)),
                      c("a", "b"))
-    expect_identical(Matrix::diag(quanteda.textplots:::remove_edges(mt, 1, FALSE)),
+    expect_equivalent(Matrix::diag(quanteda.textplots:::remove_edges(mt, 1, FALSE)),
                      c(0, 0, 0))
 })
 

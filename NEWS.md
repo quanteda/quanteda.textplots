@@ -1,3 +1,7 @@
+# quanteda.textplots 0.94.1
+
+* Test update for changes in upcoming Matrix 1.4-1.
+
 # quanteda.textplots 0.94
 
 * Further updates in preparation for quanteda v3.

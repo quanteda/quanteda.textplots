@@ -6,10 +6,7 @@
 \alias{quanteda.textplots-package}
 \title{quanteda.textplots: Plots for the Quantitative Analysis of Textual Data}
 \description{
-Plotting functions for visualising textual data.  Extends 'quanteda' and 
-   related packages with plot methods designed specifically for text data, textual statistics, 
-   and models fit to textual data. Plot types include word clouds, lexical dispersion plots, 
-   scaling plots, network visualisations, and word 'keyness' plots.
+Plotting functions for visualising textual data. Extends 'quanteda' and related packages with plot methods designed specifically for text data, textual statistics, and models fit to textual data. Plot types include word clouds, lexical dispersion plots, scaling plots, network visualisations, and word 'keyness' plots.
 }
 \seealso{
 Useful links:
