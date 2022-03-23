@@ -8,3 +8,4 @@
 ^\.lintr$
 ^CRAN-RELEASE$
 ^revdep$
+^CRAN-SUBMISSION$

@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // qatd_cpp_is_overlap
 bool qatd_cpp_is_overlap(SEXP x1_, SEXP y1_, SEXP w1_, SEXP h1_, SEXP boxe_);
 RcppExport SEXP _quanteda_textplots_qatd_cpp_is_overlap(SEXP x1_SEXP, SEXP y1_SEXP, SEXP w1_SEXP, SEXP h1_SEXP, SEXP boxe_SEXP) {

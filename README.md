@@ -5,13 +5,13 @@
 
 [![CRAN
 Version](https://www.r-pkg.org/badges/version/quanteda.textplots)](https://CRAN.R-project.org/package=quanteda.textplots)
-[![](https://img.shields.io/badge/devel%20version-0.94-royalblue.svg)](https://github.com/quanteda/quanteda.textplots)
+[![](https://img.shields.io/badge/devel%20version-0.94.1-royalblue.svg)](https://github.com/quanteda/quanteda.textplots)
 [![Downloads](https://cranlogs.r-pkg.org/badges/quanteda.textplots)](https://CRAN.R-project.org/package=quanteda.textplots)
 [![Total
 Downloads](https://cranlogs.r-pkg.org/badges/grand-total/quanteda.textplots?color=orange)](https://CRAN.R-project.org/package=quanteda.textplots)
 [![R build
 status](https://github.com/quanteda/quanteda.textplots/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.textplots/actions)
-[![codecov](https://codecov.io/gh/quanteda/quanteda.textplots/branch/master/graph/badge.svg)](https://codecov.io/gh/quanteda/quanteda.textplots)
+[![codecov](https://codecov.io/gh/quanteda/quanteda.textplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.textplots)
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00774/status.svg)](https://doi.org/10.21105/joss.00774)
 <!-- badges: end -->
 
