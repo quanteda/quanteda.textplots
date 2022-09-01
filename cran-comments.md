@@ -1,13 +1,13 @@
 # Submission notes
 
-Update to avoid breaking test with the forthcoming release of Matrix 1.4-1.
+Update to avoid breaking tests with the forthcoming release of Matrix 1.4-2/1.5.
 
 # Checks
 
 ## Test environments
 
-* local macOS 12.3, R 4.1.3
-* Ubuntu 20.04 LTS, R 4.1.3
+* local macOS 12.5.1, R 4.2.1
+* Ubuntu 20.04 LTS, R 4.2.1
 * Windows release via devtools::check_win_release()
 * Windows devel via devtools::check_win_devel()
 

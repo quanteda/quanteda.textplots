@@ -7,4 +7,7 @@ library("quanteda.textmodels")
 library("quanteda.textplots")
 quanteda_options(reset = TRUE)
 
+# Error on Matrix deprecations
+options(Matrix.warnDeprecatedCoerce = 2)
+
 test_check("quanteda.textplots")

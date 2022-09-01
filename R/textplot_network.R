@@ -223,7 +223,7 @@ get_margin <- function(x) {
 
 remove_edges <- function(x, min_freq, omit_isolated) {
     Matrix::diag(x) <- 0
-    x <- methods::as(x, "dgTMatrix")
+    x <- methods::as(x, "TsparseMatrix")
 
     # drop weak edges
     if (min_freq > 0) {
