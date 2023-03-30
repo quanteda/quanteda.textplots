@@ -1,6 +1,6 @@
 Package: quanteda.textplots
 Title: Plots for the Quantitative Analysis of Textual Data
-Version: 0.94.2
+Version: 0.94.3
 Authors@R: 
     c( 
     person("Kenneth", "Benoit", email = "kbenoit@lse.ac.uk", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0002-0797-564X")), 
@@ -44,4 +44,4 @@ Encoding: UTF-8
 BugReports: https://github.com/quanteda/quanteda.textplots/issues
 Language: en-GB
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

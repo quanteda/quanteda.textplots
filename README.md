@@ -5,15 +5,14 @@
 
 [![CRAN
 Version](https://www.r-pkg.org/badges/version/quanteda.textplots)](https://CRAN.R-project.org/package=quanteda.textplots)
-[![](https://img.shields.io/badge/devel%20version-0.94.2-royalblue.svg)](https://github.com/quanteda/quanteda.textplots)
+[![](https://img.shields.io/badge/devel%20version-0.94.3-royalblue.svg)](https://github.com/quanteda/quanteda.textplots)
 [![Downloads](https://cranlogs.r-pkg.org/badges/quanteda.textplots)](https://CRAN.R-project.org/package=quanteda.textplots)
 [![Total
 Downloads](https://cranlogs.r-pkg.org/badges/grand-total/quanteda.textplots?color=orange)](https://CRAN.R-project.org/package=quanteda.textplots)
-[![R build
-status](https://github.com/quanteda/quanteda.textplots/workflows/R-CMD-check/badge.svg)](https://github.com/quanteda/quanteda.textplots/actions)
+[![R-CMD-check](https://github.com/quanteda/quanteda.textplots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.textplots/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/quanteda/quanteda.textplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.textplots)
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00774/status.svg)](https://doi.org/10.21105/joss.00774)
-[![R-CMD-check](https://github.com/quanteda/quanteda.textplots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/quanteda/quanteda.textplots/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 ## About
@@ -57,15 +56,15 @@ testimonial here](https://github.com/quanteda/quanteda/issues/461).
 Contributions in the form of feedback, comments, code, and bug reports
 are most welcome. How to contribute:
 
--   Fork the source code, modify, and issue a [pull
-    request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
-    through the [project GitHub
-    page](https://github.com/quanteda/quanteda.textplots). See our
-    [Contributor Code of
-    Conduct](https://github.com/quanteda/quanteda/blob/master/CONDUCT.md)
-    and the all-important **quanteda** [Style
-    Guide](https://github.com/quanteda/quanteda/wiki/Style-guide).
--   Issues, bug reports, and wish lists: [File a GitHub
-    issue](https://github.com/quanteda/quanteda.textplots/issues).
--   Usage questions: Submit a question on the [**quanteda** channel on
-    StackOverflow](https://stackoverflow.com/questions/tagged/quanteda).
+- Fork the source code, modify, and issue a [pull
+  request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
+  through the [project GitHub
+  page](https://github.com/quanteda/quanteda.textplots). See our
+  [Contributor Code of
+  Conduct](https://github.com/quanteda/quanteda/blob/master/CONDUCT.md)
+  and the all-important **quanteda** [Style
+  Guide](https://github.com/quanteda/quanteda/wiki/Style-guide).
+- Issues, bug reports, and wish lists: [File a GitHub
+  issue](https://github.com/quanteda/quanteda.textplots/issues).
+- Usage questions: Submit a question on the [**quanteda** channel on
+  StackOverflow](https://stackoverflow.com/questions/tagged/quanteda).
