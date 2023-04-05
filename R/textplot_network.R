@@ -256,7 +256,7 @@ plot_network <- function(edge, vertex, font, offset) {
         geom_curve(data = edge, aes(x = x1, y = y1, xend = x2, yend = y2),
                    color = edge$color, curvature = 0.2,
                    alpha = edge$alpha, lineend = "round",
-                   size = edge$weight * edge$size,
+                   linewidth = edge$weight * edge$size,
                    angle = 90) +
         geom_point(data = vertex, aes(x, y), color = vertex$color,
                    size = vertex$size, shape = 19)

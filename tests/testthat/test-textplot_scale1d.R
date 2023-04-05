@@ -1,8 +1,8 @@
-library("quanteda.textmodels")
-
 pdf(file = tempfile(".pdf"), width = 10, height = 10)
 
 test_that("test textplot_scale1d wordfish in the most basic way", {
+    skip_if_not_installed("quanteda.textmodels")
+    require("quanteda.textmodels")
     wf <- textmodel_wordfish(dfm(tokens(data_corpus_irishbudget2010)), dir = c(6, 5))
     expect_false(identical(textplot_scale1d(wf, sort = TRUE),
                            textplot_scale1d(wf, sort = FALSE)))
@@ -25,6 +25,7 @@ test_that("test textplot_scale1d wordfish in the most basic way", {
 })
 
 test_that("test textplot_scale1d wordscores in the most basic way", {
+    skip_if_not_installed("quanteda.textmodels")
     mt <- dfm(tokens(data_corpus_irishbudget2010))
     ws <- quanteda.textmodels::textmodel_wordscores(mt, c(rep(NA, 4), -1, 1, rep(NA, 8)))
     pr <- suppressWarnings(predict(ws, mt, force = TRUE))

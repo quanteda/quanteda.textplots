@@ -3,7 +3,7 @@ Sys.setenv("_R_CHECK_LENGTH_1_CONDITION_" = TRUE)
 
 library("testthat")
 library("quanteda")
-library("quanteda.textmodels")
+# library("quanteda.textmodels")
 library("quanteda.textplots")
 quanteda_options(reset = TRUE)
 

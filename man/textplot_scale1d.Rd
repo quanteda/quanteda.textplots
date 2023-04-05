@@ -64,15 +64,15 @@ The \code{groups} argument only applies when \code{margin = "documents"}.
 }
 \examples{
 library("quanteda")
-data(data_corpus_irishbudget2010, package = "quanteda.textmodels")
-dfmat <- dfm(data_corpus_irishbudget2010)
+if (require("quanteda.textmodels")) {
+dfmat <- dfm(tokens(data_corpus_irishbudget2010))
 
 ## wordscores
 refscores <- c(rep(NA, 4), 1, -1, rep(NA, 8))
-tmod1 <- quanteda.textmodels::textmodel_wordscores(dfmat, y = refscores, smooth = 1)
+tmod1 <- textmodel_wordscores(dfmat, y = refscores, smooth = 1)
 # plot estimated document positions
 textplot_scale1d(predict(tmod1, se.fit = TRUE),
-                 groups = docvars(data_corpus_irishbudget2010, "party"))
+                 groups = data_corpus_irishbudget2010$party)
 # plot estimated word positions
 textplot_scale1d(tmod1, margin = "features",
                  highlighted = c("minister", "have", "our", "budget"))
@@ -81,7 +81,7 @@ textplot_scale1d(tmod1, margin = "features",
 tmod2 <- quanteda.textmodels::textmodel_wordfish(dfmat, dir = c(6,5))
 # plot estimated document positions
 textplot_scale1d(tmod2)
-textplot_scale1d(tmod2, groups = docvars(data_corpus_irishbudget2010, "party"))
+textplot_scale1d(tmod2, groups = data_corpus_irishbudget2010$party)
 # plot estimated word positions
 textplot_scale1d(tmod2, margin = "features",
                  highlighted = c("government", "global", "children",
@@ -89,10 +89,11 @@ textplot_scale1d(tmod2, margin = "features",
                                  "productivity", "deficit"))
 
 ## correspondence analysis
-tmod3 <- quanteda.textmodels::textmodel_ca(dfmat)
+tmod3 <- textmodel_ca(dfmat)
 # plot estimated document positions
 textplot_scale1d(tmod3, margin = "documents",
                  groups = docvars(data_corpus_irishbudget2010, "party"))
+}
 }
 \seealso{
 \code{\link[quanteda.textmodels:textmodel_wordfish]{quanteda.textmodels::textmodel_wordfish()}},
