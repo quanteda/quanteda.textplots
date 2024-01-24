@@ -98,11 +98,11 @@ documents by some document variable.
 # plot the features (without stopwords) from Obama's inaugural addresses
 set.seed(10)
 library("quanteda")
-dfmat1 <- data_corpus_inaugural \%>\%
-    corpus_subset(President == "Obama") \%>\%
-    tokens(remove_punct = TRUE) \%>\%
-    tokens_remove(stopwords("en")) \%>\%
-    dfm() \%>\%
+dfmat1 <- data_corpus_inaugural |>
+    corpus_subset(President == "Obama") |>
+    tokens(remove_punct = TRUE) |>
+    tokens_remove(stopwords("en")) |>
+    dfm() |>
     dfm_trim(min_termfreq = 3)
 
 # basic wordcloud
@@ -118,12 +118,12 @@ textplot_wordcloud(dfmat1, adjust = 0.5, random_order = FALSE,
                    color = col, rotation = FALSE)
 
 # comparison plot of Obama v. Trump
-dfmat2 <- data_corpus_inaugural \%>\%
-    corpus_subset(President \%in\% c("Obama", "Trump")) \%>\%
-    tokens(remove_punct = TRUE) \%>\%
-    tokens_remove(stopwords("en")) \%>\%
+dfmat2 <- data_corpus_inaugural |>
+    corpus_subset(President \%in\% c("Obama", "Trump")) |>
+    tokens(remove_punct = TRUE) |>
+    tokens_remove(stopwords("en")) |>
     dfm()
-dfmat2 <- dfm_group(dfmat2, dfmat2$President) \%>\%
+dfmat2 <- dfm_group(dfmat2, dfmat2$President) |>
     dfm_trim(min_termfreq = 3)
 
 textplot_wordcloud(dfmat2, comparison = TRUE, max_words = 100,
@@ -131,10 +131,10 @@ textplot_wordcloud(dfmat2, comparison = TRUE, max_words = 100,
 
 \dontrun{
 # for keyness
-tstat <- data_corpus_inaugural[c(1, 3)] \%>\%
-    tokens(remove_punct = TRUE) \%>\%
-    tokens_remove(stopwords("en")) \%>\%
-    dfm() \%>\%
+tstat <- data_corpus_inaugural[c(1, 3)] |>
+    tokens(remove_punct = TRUE) |>
+    tokens_remove(stopwords("en")) |>
+    dfm() |>
     quanteda.textstats::textstat_keyness()
 textplot_wordcloud(tstat, min_count = 2)
 textplot_wordcloud(tstat, min_count = 2, comparison = FALSE)

@@ -89,10 +89,6 @@ aspect ratio only supported if rotation = 0.}
 
 \item{...}{additional parameters. Only used to make it compatible with
 \pkg{wordcloud}}
-
-\item{random.color}{deprecated argument}
-
-\item{ordered.colors}{deprecated argument}
 }
 \description{
 This function implements wordcloud that compares documents. Code is adopted

@@ -77,19 +77,22 @@ own plotting function using \code{\link[=as.network.fcm]{as.network()}}.
 \examples{
 set.seed(100)
 library("quanteda")
-toks <- data_char_ukimmig2010 \%>\%
-    tokens(remove_punct = TRUE) \%>\%
-    tokens_tolower() \%>\%
+toks <- data_char_ukimmig2010 |>
+    tokens(remove_punct = TRUE) |>
+    tokens_tolower() |>
     tokens_remove(pattern = stopwords("english"), padding = FALSE)
 fcmat <- fcm(toks, context = "window", tri = FALSE)
-feat <- names(topfeatures(fcmat, 30))
-fcm_select(fcmat, pattern = feat) \%>\%
+feat <- colSums(fcmat) |>
+  sort(decreasing = TRUE) |>
+  head(30) |>
+  names()
+fcm_select(fcmat, pattern = feat) |>
     textplot_network(min_freq = 0.5)
-fcm_select(fcmat, pattern = feat) \%>\%
+fcm_select(fcmat, pattern = feat) |>
     textplot_network(min_freq = 0.8)
-fcm_select(fcmat, pattern = feat) \%>\%
+fcm_select(fcmat, pattern = feat) |>
     textplot_network(min_freq = 0.8, vertex_labelcolor = rep(c('gray40', NA), 15))
-fcm_select(fcmat, pattern = feat) \%>\%
+fcm_select(fcmat, pattern = feat) |>
     textplot_network(vertex_labelsize = 10)
 fcm_30 <- fcm_select(fcmat, pattern = feat)
 textplot_network(fcm_30,
@@ -102,7 +105,7 @@ textplot_network(fcm_30,
 # as.igraph
 if (requireNamespace("igraph", quietly = TRUE)) {
     txt <- c("a a a b b c", "a a c e", "a c e f g")
-    mat <- fcm(txt)
+    mat <- fcm(tokens(txt))
     as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
 }
 }

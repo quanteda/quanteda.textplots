@@ -1,12 +1,12 @@
 # Submission notes
 
-Resubmitting to reset the flag for the noSuggests, because a package that **quanteda.textplots** suggests was off CRAN for a week.
+Fixes NOTEs warned about by CRAN on 22-Jan-2024.
 
 # Checks
 
 ## Test environments
 
-* local macOS 13.2.1, R 4.2.3
+* local macOS 14.2.1, R 4.2.3
 * Ubuntu 22.04 LTS, R 4.2.3
 * Windows release via devtools::check_win_release()
 * Windows devel via devtools::check_win_devel()

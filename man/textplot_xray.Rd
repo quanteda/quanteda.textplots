@@ -43,26 +43,28 @@ is to produce one kwic per dictionary key, and send them as a list to
 
 \examples{
 library("quanteda")
-corp <- corpus_subset(data_corpus_inaugural, Year > 1970)
+toks <- data_corpus_inaugural |>
+  corpus_subset(Year > 1970) |>
+  tokens()
 # compare multiple documents
-textplot_xray(kwic(corp, pattern = "american"))
-textplot_xray(kwic(corp, pattern = "american"), scale = "absolute")
+textplot_xray(kwic(toks, pattern = "american"))
+textplot_xray(kwic(toks, pattern = "american"), scale = "absolute")
 
 # compare multiple terms across multiple documents
-textplot_xray(kwic(corp, pattern = "america*"),
-              kwic(corp, pattern = "people"))
+textplot_xray(kwic(toks, pattern = "america*"),
+              kwic(toks, pattern = "people"))
 
 \dontrun{
 # how to modify the ggplot with different options
 library("ggplot2")
-tplot <- textplot_xray(kwic(corp, pattern = "american"),
-                       kwic(corp, pattern = "people"))
+tplot <- textplot_xray(kwic(toks, pattern = "american"),
+                       kwic(toks, pattern = "people"))
 tplot + aes(color = keyword) + scale_color_manual(values = c('red', 'blue'))
 
 # adjust the names of the document names
-docnames(corp) <- apply(docvars(corp, c("Year", "President")), 1, paste, collapse = ", ")
-textplot_xray(kwic(corp, pattern = "america*"),
-              kwic(corp, pattern = "people"))
+docnames(toks) <- apply(docvars(toks, c("Year", "President")), 1, paste, collapse = ", ")
+textplot_xray(kwic(toks, pattern = "america*"),
+              kwic(toks, pattern = "people"))
 }
 }
 \keyword{textplot}
