@@ -13,6 +13,8 @@ Downloads](https://cranlogs.r-pkg.org/badges/grand-total/quanteda.textplots?colo
 [![codecov](https://codecov.io/gh/quanteda/quanteda.textplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.textplots)
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.00774/status.svg)](https://doi.org/10.21105/joss.00774)
 
+[![Codecov test
+coverage](https://codecov.io/gh/quanteda/quanteda.textplots/branch/master/graph/badge.svg)](https://app.codecov.io/gh/quanteda/quanteda.textplots?branch=master)
 <!-- badges: end -->
 
 ## About
