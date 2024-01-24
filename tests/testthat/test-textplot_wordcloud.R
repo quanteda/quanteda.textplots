@@ -8,10 +8,10 @@ test_that("test textplot_wordcloud works for dfm objects", {
 
 test_that("test textplot_wordcloud works for keyness objects", {
     skip("until quanteda.textstats is updated")
-    tstat <- head(data_corpus_inaugural, 2) %>%
-        tokens() %>%
-        tokens_remove(stopwords("en")) %>%
-        dfm() %>%
+    tstat <- head(data_corpus_inaugural, 2) |>
+        tokens() |>
+        tokens_remove(stopwords("en")) |>
+        dfm() |>
         quanteda.textstats::textstat_keyness(target = 1)
     expect_silent(textplot_wordcloud(tstat, max_words = 50))
     expect_silent(textplot_wordcloud(tstat, comparison = FALSE, max_words = 50))
@@ -25,7 +25,7 @@ test_that("test textplot_wordcloud comparison works", {
     set.seed(1)
     docvars(testcorp, "label") <- sample(c("A", "B"), size = ndoc(testcorp), replace = TRUE)
     docnames(testcorp) <- paste0("text", 1:ndoc(testcorp))
-    testdfm <- dfm(tokens(testcorp)) %>%
+    testdfm <- dfm(tokens(testcorp)) |>
         dfm_remove(stopwords("en"))
     testdfm_grouped <- dfm_group(testdfm, groups = testdfm$label)
 
@@ -45,8 +45,8 @@ test_that("test textplot_wordcloud comparison works", {
     )
 
     dfmsmall <- dfm(tokens(data_corpus_inaugural[1:9], remove_punct = TRUE))
-    dfmsmall <- dfm_group(dfmsmall, groups = dfmsmall$President) %>%
-        dfm_remove(stopwords("en")) %>%
+    dfmsmall <- dfm_group(dfmsmall, groups = dfmsmall$President) |>
+        dfm_remove(stopwords("en")) |>
         dfm_trim(min_termfreq = 20)
     expect_silent(textplot_wordcloud(dfmsmall, comparison = TRUE))
     expect_silent(textplot_wordcloud(dfmsmall, color = 1:5))
