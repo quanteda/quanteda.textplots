@@ -1,3 +1,8 @@
+# quanteda.textplots 0.94.2 - 0.94.4
+
+* Updates to maintain clean CRAN checks and to ensure consistency with minor changes in underlying packages.
+
+
 # quanteda.textplots 0.94.1
 
 * Test update for changes in upcoming Matrix 1.4-1.
