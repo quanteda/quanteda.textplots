@@ -7,7 +7,7 @@
 textplot_xray(..., scale = c("absolute", "relative"), sort = FALSE)
 }
 \arguments{
-\item{...}{any number of \link{kwic} class objects}
+\item{...}{any number of \link[quanteda:kwic]{kwic} class objects}
 
 \item{scale}{whether to scale the token index axis by absolute position of
 the token in the document or by relative position. Defaults are absolute
@@ -21,12 +21,12 @@ a \pkg{ggplot2} object
 }
 \description{
 Plots a dispersion or "x-ray" plot of selected word pattern(s) across one or
-more texts. The format of the plot depends on the number of \link{kwic} class
-objects passed: if there is only one document, keywords are plotted one below
-the other. If there are multiple documents the documents are plotted one
-below the other, with keywords shown side-by-side. Given that this returns a
-\pkg{ggplot2} object, you can modify the plot by adding \pkg{ggplot2} layers
-(see example).
+more texts. The format of the plot depends on the number of
+\link[quanteda:kwic]{kwic} class objects passed: if there is only one document,
+keywords are plotted one below the other. If there are multiple documents the
+documents are plotted one below the other, with keywords shown side-by-side.
+Given that this returns a \pkg{ggplot2} object, you can modify the plot by
+adding \pkg{ggplot2} layers (see example).
 }
 \section{Known Issues}{
 

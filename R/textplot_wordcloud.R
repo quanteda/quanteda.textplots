@@ -1,10 +1,10 @@
 #' Plot features as a wordcloud
 #'
-#' Plot a [dfm] or [quanteda.textstats::textstat_keyness] object as a wordcloud,
-#' where the feature labels are plotted with their sizes proportional to their
-#' numerical values in the dfm.  When `comparison = TRUE`, it plots comparison
-#' word clouds by document (or by target and reference categories in the case of
-#' a keyness object).
+#' Plot a [dfm][quanteda::dfm] or [quanteda.textstats::textstat_keyness] object
+#' as a wordcloud, where the feature labels are plotted with their sizes
+#' proportional to their numerical values in the dfm.  When `comparison = TRUE`,
+#' it plots comparison word clouds by document (or by target and reference
+#' categories in the case of a keyness object).
 #' @details
 #'  The default is to plot the word cloud of all features, summed across
 #'  documents.  To produce word cloud plots for specific document or set of
@@ -16,7 +16,8 @@
 #'  create a dfm where the "documents" represent a subset or a grouping of
 #'  documents by some document variable.
 #'
-#' @param x a [dfm] or [quanteda.textstats::textstat_keyness] object
+#' @param x a [dfm][quanteda::dfm] or [quanteda.textstats::textstat_keyness]
+#'   object
 #' @param min_size size of the smallest word
 #' @param max_size size of the largest word
 #' @param min_count words with frequency below min_count will not be plotted

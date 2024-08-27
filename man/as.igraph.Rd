@@ -7,6 +7,6 @@
 as.igraph(x, ...)
 }
 \description{
-Convert an \link{fcm} object to an \pkg{igraph} graph object.
+Convert an \link[quanteda:fcm]{fcm} object to an \pkg{igraph} graph object.
 }
 \keyword{internal}
