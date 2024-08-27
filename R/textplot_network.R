@@ -1,8 +1,8 @@
 #' Plot a network of feature co-occurrences
 #'
-#' Plot an [fcm] object as a network, where edges show co-occurrences of
-#' features.
-#' @param x a [fcm] or [dfm]  object
+#' Plot an [fcm][quanteda::fcm] object as a network, where edges show
+#' co-occurrences of features.
+#' @param x a [fcm][quanteda::fcm] or [dfm][quanteda::dfm]  object
 #' @param min_freq a frequency count threshold or proportion for co-occurrence
 #'   frequencies of features to be included.
 #' @param omit_isolated if `TRUE`, features do not occur more frequent than
@@ -27,9 +27,9 @@
 #'   used for `as.igraph`.
 #' @details Currently the size of the network is limited to 1000, because of the
 #'   computationally intensive nature of network formation for larger matrices.
-#'   When the [fcm] is large, users should select features using
-#'   [fcm_select], set the threshold using `min_freq`, or implement
-#'   own plotting function using [`as.network()`][as.network.fcm].
+#'   When the [fcm][quanteda::fcm] is large, users should select features using
+#'   [fcm_select()][quanteda::fcm_select], set the threshold using `min_freq`,
+#'   or implement own plotting function using [`as.network()`][as.network.fcm].
 #' @author Kohei Watanabe and Stefan Müller
 #' @examples
 #' set.seed(100)
@@ -59,7 +59,7 @@
 #'                  vertex_labelsize = 1.5 * Matrix::rowSums(fcm_30) /
 #'                                     min(Matrix::rowSums(fcm_30)))
 #' @export
-#' @seealso [fcm()]
+#' @seealso [fcm][quanteda::fcm()]
 #' @import ggplot2
 #' @keywords textplot
 textplot_network <- function(x, min_freq = 0.5, omit_isolated = TRUE,
@@ -187,7 +187,7 @@ as.network.fcm <- function(x, min_freq = 0.5, omit_isolated = TRUE, ...) {
 
 #' Convert an fcm to an igraph object
 #'
-#' Convert an [fcm] object to an \pkg{igraph} graph object.
+#' Convert an [fcm][quanteda::fcm] object to an \pkg{igraph} graph object.
 #' @keywords internal
 #' @export
 as.igraph <- function(x, ...) UseMethod("as.igraph")

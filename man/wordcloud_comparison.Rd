@@ -33,7 +33,8 @@ wordcloud_comparison(
 )
 }
 \arguments{
-\item{x}{a \link{dfm} or \link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness} object}
+\item{x}{a \link[quanteda:dfm]{dfm} or \link[quanteda.textstats:textstat_keyness]{quanteda.textstats::textstat_keyness}
+object}
 
 \item{min_size}{size of the smallest word}
 

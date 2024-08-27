@@ -10,7 +10,7 @@ using namespace Rcpp;
 bool qatd_cpp_is_overlap(SEXP x1_, SEXP y1_, SEXP w1_, SEXP h1_, SEXP boxe_) {
     
 	double x1 = as<double>(x1_);
-	double y1 =as<double>(y1_);
+	double y1 = as<double>(y1_);
 	double sw1 = as<double>(w1_);
 	double sh1 = as<double>(h1_);
 	Rcpp::List boxes(boxe_);

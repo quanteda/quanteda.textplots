@@ -27,7 +27,7 @@ textplot_network(
 \method{as.igraph}{fcm}(x, min_freq = 0.5, omit_isolated = TRUE, ...)
 }
 \arguments{
-\item{x}{a \link{fcm} or \link{dfm}  object}
+\item{x}{a \link[quanteda:fcm]{fcm} or \link[quanteda:dfm]{dfm}  object}
 
 \item{min_freq}{a frequency count threshold or proportion for co-occurrence
 frequencies of features to be included.}
@@ -64,15 +64,15 @@ determined automatically.}
 used for \code{as.igraph}.}
 }
 \description{
-Plot an \link{fcm} object as a network, where edges show co-occurrences of
-features.
+Plot an \link[quanteda:fcm]{fcm} object as a network, where edges show
+co-occurrences of features.
 }
 \details{
 Currently the size of the network is limited to 1000, because of the
 computationally intensive nature of network formation for larger matrices.
-When the \link{fcm} is large, users should select features using
-\link{fcm_select}, set the threshold using \code{min_freq}, or implement
-own plotting function using \code{\link[=as.network.fcm]{as.network()}}.
+When the \link[quanteda:fcm]{fcm} is large, users should select features using
+\link[quanteda:dfm_select]{fcm_select()}, set the threshold using \code{min_freq},
+or implement own plotting function using \code{\link[=as.network.fcm]{as.network()}}.
 }
 \examples{
 set.seed(100)
@@ -110,7 +110,7 @@ if (requireNamespace("igraph", quietly = TRUE)) {
 }
 }
 \seealso{
-\code{\link[=fcm]{fcm()}}
+\link[quanteda:fcm]{fcm}
 
 \code{\link[network:network]{network::network()}}
 
