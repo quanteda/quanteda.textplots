@@ -1,3 +1,12 @@
+# quanteda.textplots 0.96
+
+* Removes the dependency on **extrafont**, which was scheduled for archiving due to an unfixed failure of one of its reverse dependencies.
+
+# quanteda.textplots 0.95
+
+* Trims the C++ legacy compiler directives that are no longer needed, and were causing problems with the checks on CRAN.
+* Removed broken Rd links causing problems with the checks on CRAN.
+
 # quanteda.textplots 0.94.2 - 0.94.4
 
 * Updates to maintain clean CRAN checks and to ensure consistency with minor changes in underlying packages.

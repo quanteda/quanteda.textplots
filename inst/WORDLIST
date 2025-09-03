@@ -1,4 +1,5 @@
 CMD
+Codecov
 ERC
 Fellows's
 NOTEs
@@ -12,14 +13,11 @@ color
 dfm
 docnames
 docvars
-doi
+extrafont
 fcm
-ggplot
 igraph
-io
 keyness
 kwic
-org
 overplot
 quanteda
 textplot

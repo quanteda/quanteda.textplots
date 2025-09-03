@@ -2,18 +2,19 @@
 % Please edit documentation in R/utils.R
 \name{check_font}
 \alias{check_font}
-\title{Check if font is available on the system}
+\title{Prepare font parameter for plotting}
 \usage{
 check_font(font)
 }
 \arguments{
-\item{font}{name of a font to be checked if available on the system.}
+\item{font}{name of a font to be used in plotting.}
 }
 \value{
 character string
 }
 \description{
-This function checks if custom font is available to \pkg{ggplot2} and
-\pkg{graphics} APIs.
+This function prepares font parameter for use with \pkg{ggplot2} and
+\pkg{graphics} APIs. No validation is performed - fonts are passed through
+and any invalid fonts will be handled by the graphics system.
 }
 \keyword{internal}

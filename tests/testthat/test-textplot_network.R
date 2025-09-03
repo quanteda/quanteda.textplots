@@ -41,9 +41,8 @@ test_that("test textplot_network font-selection", {
                                    vertex_labelfont = "serif"))
     expect_silent(textplot_network(testdfm, offset = 0.1,
                                    vertex_labelfont = "sans"))
-    expect_error(textplot_network(testfcm, min_freq = 0.1,
-                                  vertex_labelfont = "not_a_real_font"),
-                 "not_a_real_font is not found on your system")
+    expect_silent(textplot_network(testfcm, min_freq = 0.1,
+                                   vertex_labelfont = "not_a_real_font"))
 })
 
 test_that("raises error when dfm is empty (#1419)", {
