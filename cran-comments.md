@@ -1,4 +1,4 @@
 # Submission notes
 
-Removes a dependency on extrafont that could result in archival, as that package depends on another package scheduled for removal from CRAN.
-
+* Replaces a deprecated argument in ggplot, to avoid a deprecation warning.
+* Updates GitHub actions for more modern checks.
