@@ -121,7 +121,7 @@ textplot_keyness.keyness <- function(x, show_reference = TRUE, show_legend = TRU
     ggplot(data) +
          xlim(if (show_reference) min(data$x1) - margin else 0, max(data$x1) + margin) +
          geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2, color = color),
-                      size = labelsize) +
+                      linewidth = labelsize) +
          scale_colour_identity(NULL, labels = group, breaks = color,
                                guide = if (show_legend) "legend" else FALSE) +
          xlab(measure) +
