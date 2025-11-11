@@ -113,6 +113,7 @@ textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
         x$from <- x$from / x$ntokens
 
     from <- ntokens <- NULL
+    max_ntokens <- max(x$ntokens)
     plot <- ggplot2::ggplot(x, ggplot2::aes(x = from, y = 1)) +
         ggplot2::geom_segment(ggplot2::aes(xend = from, yend = 0)) +
         ggplot2::theme(axis.line = ggplot2::element_blank(),
@@ -129,7 +130,7 @@ textplot_xray.kwic <- function(..., scale = c("absolute", "relative"),
 
     if (scale == "absolute")
         plot <- plot +
-          ggplot2::geom_rect(ggplot2::aes(xmin = ntokens, xmax = max(x$ntokens),
+          ggplot2::geom_rect(ggplot2::aes(xmin = ntokens, xmax = max_ntokens,
                                           ymin = 0, ymax = 1), fill = "gray90")
 
     if (multiple_documents) {
