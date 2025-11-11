@@ -8,9 +8,10 @@
 #' Given that this returns a \pkg{ggplot2} object, you can modify the plot by
 #' adding \pkg{ggplot2} layers (see example).
 #' @param ... any number of [kwic][quanteda::kwic] class objects
-#' @param scale whether to scale the token index axis by absolute position of
-#'   the token in the document or by relative position. Defaults are absolute
-#'   for single document and relative for multiple documents.
+#' @param scale `"relative"` or `"absolute"`: whether to scale the token index
+#'   axis by absolute position of the token in the document or by relative
+#'   position. Defaults are `"absolute"` for single document and `"relative"`
+#'   for multiple documents.
 #' @param sort whether to sort the rows of a multiple document plot by document
 #'   name
 #' @return a \pkg{ggplot2} object
