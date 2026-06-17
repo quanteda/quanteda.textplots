@@ -102,7 +102,7 @@ test_that("as.igraph.fcm works", {
     txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
     mat <- fcm(txt)
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
-    expect_true(igraph::is.igraph(net))
+    expect_true(igraph::is_igraph(net))
     expect_identical(igraph::vertex_attr(net, "name"), featnames(mat))
     expect_identical(igraph::vertex_attr(net, "frequency"), 
                      unname(quanteda.textplots:::get_margin(mat)))
@@ -115,7 +115,7 @@ test_that("as.igraph.fcm works with window", {
     txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
     mat <- fcm(txt, contex = "window", window = 2)
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
-    expect_true(igraph::is.igraph(net))
+    expect_true(igraph::is_igraph(net))
     expect_identical(igraph::vertex_attr(net, "name"), featnames(mat))
     expect_identical(igraph::vertex_attr(net, "frequency"), 
                      unname(quanteda.textplots:::get_margin(mat)))
