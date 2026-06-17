@@ -88,7 +88,7 @@ test_that("as.network.fcm works", {
 
 test_that("as.network.fcm works with window", {
     txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
-    mat <- fcm(txt, contex = "window", window = 2)
+    mat <- fcm(txt, context = "window", window = 2)
     net <- as.network(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(network::is.network(net))
     expect_identical(network::network.vertex.names(net), featnames(mat))
@@ -113,7 +113,7 @@ test_that("as.igraph.fcm works with window", {
     skip_if_not_installed("igraph")
     skip_on_os("linux")
     txt <- tokens(c("a a a b b c", "a a c e", "a c e f g"))
-    mat <- fcm(txt, contex = "window", window = 2)
+    mat <- fcm(txt, context = "window", window = 2)
     net <- as.igraph(mat, min_freq = 1, omit_isolated = FALSE)
     expect_true(igraph::is.igraph(net))
     expect_identical(igraph::vertex_attr(net, "name"), featnames(mat))

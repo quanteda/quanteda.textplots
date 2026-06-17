@@ -114,7 +114,7 @@ textplot_keyness.keyness <- function(x, show_reference = TRUE, show_legend = TRU
     data$x1 <- ifelse(data$right, abs(data$keyness), abs(data$keyness) * -1)
     data$y1 <- rank(data$keyness, ties.method = "first")
     data$x2 <- 0
-    data$y2 <- data$y
+    data$y2 <- data$y1
     margin <- margin * max(abs(data$x1)) * 2
 
     x1 <- y1 <- x2 <- y2 <- feature <- NULL
